@@ -1,0 +1,237 @@
+@media (max-width: 1024px) {  
+  .prize-container {
+      width: 100%; 
+  }
+
+}
+
+@media (max-width: 768px) {  
+  .bg-flag { 
+      padding: 50px 0 0px 0  !important;
+  }
+
+  .bg-flag .container {
+    padding: 115px 0;
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  .simple-linear { 
+    padding: 10em; 
+  }
+
+  .bg-street .container { 
+      width: 100%; 
+  }
+
+  .prize-container { 
+    padding: 40px 0; 
+  }
+      
+}
+
+@media (max-width: 480px) {   
+    .tk-logo-banner {
+        margin: 0 auto 25px auto;
+        max-width: 90%;
+    }
+
+    .btn-tk {  
+      font-weight: 500 !important;
+      font-size: 12px !important;
+      padding: 13px 22px !important;  
+      letter-spacing: 1px;
+    }
+
+    section h2.section-heading {
+      font-size: 1.75em; 
+      margin-bottom: 30px; 
+    }
+
+    section h3.section-subheading {
+      font-size: 14px; 
+      line-height: 20px;
+    }
+
+    .prize-container {
+      width: 100%;
+      padding: 50px 0; 
+    }
+
+    .prize-box {
+      border: 2px solid #fff;
+      border-radius: 10px;
+      padding: 15px 10px;
+      max-width: 20em;
+      margin: 0 auto 50px auto;
+  }
+
+  .prize-box h4 { 
+      font-size: 17px;
+  }
+
+  .prize-box h2 {
+      font-size: 30px;
+      margin-bottom: 25px;
+      margin-top: 25px;
+  }
+
+  .simple-linear { 
+      padding: 0em;
+      margin: -12em;
+  }
+
+  section h4.section-heading.line-behind-text span { 
+      font-size: 25px;
+  }
+
+  section h4.section-heading.line-behind-text span:before {
+    right: 103%;
+  }
+  section h4.section-heading.line-behind-text span:after {
+    left: 103%;
+  }
+
+  .form-control,
+  .btn-register { 
+    width: 85%; 
+  }
+
+  header.bonus-checkpoint {
+    min-height: 100vh;
+  }
+
+  .bonus-container {
+    width: 85%;
+    padding: 35px 0 0 0;
+    margin: 0 auto;
+  }
+
+  .bonus-container h5 { 
+    font-size: 15px; 
+    margin-bottom: 20px;
+  }
+
+  .bonus-container-inner { 
+      padding: 10px 15px; 
+  }
+
+  .bonus-container-inner h5 { 
+      font-size: 12px;
+      margin-bottom: 20px;
+      margin-top: 15px;
+      line-height: 15px;
+  }
+
+  .bonus-container-inner p { 
+    font-size: 10px;
+    margin-bottom: 15px;
+  }
+
+  .bonus-action h4 {
+      letter-spacing: 1px;
+      font-size: 13px;
+  }
+
+  .bonus-action img {
+    width: 30%;
+    margin: 15px auto;
+  }
+
+  .bonus-action p { 
+    font-size: 9px;
+    letter-spacing: 0.5px;
+    line-height: 14px;
+  }
+
+  .bonus-action { 
+      padding: 5px;
+      max-width: 20em; 
+      min-height: 11.75em;
+  }
+
+  .timekulture-modal .modal-dialog {
+      margin: 5em auto;
+      height: 70%;
+      width: 95%;
+  }
+
+  #watchvideo .modal-content ,
+  #instagram .modal-content,
+  #share .modal-content {
+      padding: 80px 0;
+  }
+
+  .timekulture-modal .close-modal { 
+      width: 25px;
+      height: 25px; 
+      top: 15px;
+      right: 10px; 
+  }
+
+  .timekulture-modal .modal-content p { 
+      font-size: 16px;
+  }
+
+  .timekulture-modal .modal-body { 
+      padding: 0;
+  }
+
+  .timekulture-modal .modal-content img { 
+      width: 70px;
+  }
+
+} 
+ 
+@media (max-width: 360px) { 
+}
+
+@media (max-width: 320px) {  
+    .bonus-action p,
+    .bonus-container-inner p {
+        font-size: 8px; 
+    }
+
+    .bonus-container-inner h5 {
+        font-size: 10px; 
+    }
+
+    .bonus-action { 
+        min-height: 11em;
+    }
+}
+
+
+/* ----------- iPhone 6+ ----------- */
+/*iphone 6+ portrait & landscape*/
+
+@media only screen 
+  and (min-device-width: 414px) 
+  and (max-device-width: 736px) 
+  and (-webkit-min-device-pixel-ratio: 3) { 
+    }
+} 
+
+/* ----------- iPhone 8 ----------- */
+/*iphone 8 portrait & landscape*/
+
+
+@media only screen 
+    and (device-width : 375px) 
+    and (device-height : 667px) 
+    and (-webkit-device-pixel-ratio : 2) { 
+   
+}
+
+ /* ----------- iPhone X ----------- */
+/*iphone X portrait & landscape*/
+
+@media only screen 
+    and (device-width : 375px) 
+    and (device-height : 812px) 
+    and (-webkit-device-pixel-ratio : 3) { 
+
+        header { 
+            min-height: 75vh;
+        }
+}

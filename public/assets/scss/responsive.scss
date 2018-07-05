@@ -1,0 +1,355 @@
+@media (max-width: 1440px) {
+	body,
+	html {
+		font-size: 12px;
+	}
+
+	h2 {
+		font-size: 15px !important;
+	}
+
+	.scoreboard {
+		padding: 13px 10px;
+	}
+
+	.box {
+		max-width: 510px;
+		height: 510px;
+	}
+
+	.score-num {
+		line-height: 25px;
+	}
+
+	.align-bottom {
+		bottom: -11%;
+	}
+
+	.app-header {
+		width: 46%;
+	}
+	$i: 0;
+	$top: 0;
+	$left: 0;
+	@for $i from 0 through 9 {
+		@if $left == 489 {
+			$left: 0;
+			$top: $top + 163;
+		}
+
+		.me_#{$i} {
+			height: 163px;
+			width: 163px;
+			background-size: 489px;
+			background-position: -#{$left}px -#{$top}px;
+		}
+		$left: $left + 163;
+	}
+
+	.full {
+		background-size: 502px;
+	}
+
+	.img-container {
+		width: 150px;
+	}
+
+	.start-container {
+		top: 303px;
+	}
+
+	.score {
+		width: 505px;
+		height: 504px;
+		padding: 20px;
+	}
+
+	.results {
+		margin-top: 35px;
+	}
+
+	.btn-retry {
+		margin-top: 35px;
+	}
+
+	.scoreboard {
+		padding-left: 12px;
+	}
+
+	.greeting {
+		min-width: 60%;
+		line-height: 23px;
+	}
+
+	.mlh {
+		line-height: 15px;
+	}
+
+	.container {
+		padding-top: 7px;
+	}
+
+	.img-container-2 {
+		margin-bottom: 20px;
+		height: 40px;
+		margin-top: 10px;
+	}
+
+	.text-large {
+		font-size: 15px;
+		line-height: 22px;
+	}
+
+	.new-line {
+		display: block;
+	}
+
+	.my-score {
+		font-size: 50px;
+	}
+}
+@media (max-width: 1199px) {
+	.app-header {
+		width: 55%;
+	}
+
+	.start-container {
+    width: 400px;
+	}
+
+	.cover {
+		transform: translateX(-1.5%);
+	}
+}
+@media (max-width: 992px) {
+	.app-header {
+		width: 74%;
+	}
+
+	.cover {
+		transform: translateX(-2%);
+	}
+}
+@media (max-width: 767px) {
+	.app-header {
+		width: 100%;
+	}
+
+	.cover {
+		transform: translateX(-2%);
+	}
+}
+@media (max-width: 571px) {
+	body, html {
+		font-size: 10px;
+		position: fixed;
+    margin: 0 auto;
+    width: 100%;
+    height: 100%;
+    background-image: url(../img/tk-game/tk-bg-game.jpg),url(../img/tk-game/tk-footer.jpg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: top, bottom;
+    letter-spacing: 2px;
+    font-family: 'Orbitron-Bold';
+    overflow-x: hidden;
+    overflow-y: hidden;
+    background-color: black;
+}
+
+	.container {
+		overflow: hidden !important;
+	}
+
+	h2 {
+		font-size: 12px !important;
+	}
+
+	.text-large {
+		font-size: 12px;
+		line-height: 18px;
+	}
+
+	.scoreboard {
+		padding-left: 5px;
+	}
+
+	.col-6 {
+		padding-left: 5px !important;
+		padding-right: 5px !important;
+	}
+
+	.img-container-2 {
+		margin-bottom: 20px;
+		height: 30px;
+		margin-top: 21px;
+	}
+
+	.align-bottom {
+		bottom: 17%;
+	}
+
+	.my-score {
+		font-size: 30px;
+		margin-bottom: 0;
+	}
+
+	.btn-retry {
+		padding: 5px;
+		margin-top: 10px;
+		border-radius: 6px;
+	}
+
+	.score-num {
+		line-height: 17px;
+	}
+
+	.m-expand-box {
+		height: 65vh !important;
+		transition: height ease-in 1s !important;
+	}
+
+	.results {
+		margin-top: 10px;
+	}
+
+	.score {
+		width: 305px;
+		transform: translateX(2%);
+	}
+
+	.app-header {
+		width: 310px;
+	}
+
+	.app-footer {
+		width: 328px;
+		margin: auto;
+	}
+
+	.mmr-0 {
+		margin-right: 0 !important;
+	}
+
+	.mml-0 {
+		margin-left: 0 !important;
+	}
+
+	.mmt-0 {
+		margin-top: 0 !important;
+	}
+
+	.greeting {
+		margin-right: 10px !important;
+		min-width: 55%;
+	}
+
+	.date {
+		width: 100%;
+	}
+
+	.app-footer .group {
+		min-width: 0;
+		width: 100%;
+	}
+
+	.box {
+		max-width: 311px;
+		height: 307px;
+		padding: 1px;
+		line-height: 10px;
+	}
+	$i: 0;
+	$top: 0;
+	$left: 0;
+	@for $i from 0 through 9 {
+		@if $left == 291 {
+			$left: 0;
+			$top: $top + 97;
+		}
+
+		.me_#{$i} {
+			height: 97px;
+			width: 97px;
+			background-size: 291px;
+			background-position: -#{$left}px -#{$top}px;
+		}
+		$left: $left + 97;
+	}
+
+	.full {
+		background-size: 300px;
+	}
+
+	.start-container .p-1 {
+		margin-bottom: 0;
+	}
+
+	.img-container {
+		width: 100px;
+	}
+
+	.start-container .p-2 {
+		margin-bottom: 0;
+	}
+
+	.start-container {
+		top: 210px;
+		max-width: 270px;
+	}
+
+	.start-container .p-3 {
+		padding-top: 0 !important;
+	}
+}
+@media (min-width: 320px) and (max-width: 341px) {
+	.app-header {
+		width: 100%;
+	}
+
+	.point-tk {
+		margin-left: 0 !important;
+	}
+
+	.time-tk {
+		margin-right: 0 !important;
+	}
+
+	.app-footer {
+		width: 100%;
+	}
+	.align-bottom {
+    bottom: 12%;
+	}
+	$i: 0;
+	$top: 0;
+	$left: 0;
+	@for $i from 0 through 9 {
+		@if $left == 270 {
+			$left: 0;
+			$top: $top + 90;
+		}
+
+		.me_#{$i} {
+			height: 90px;
+			width: 90px;
+			background-size: 270px;
+			background-position: -#{$left}px -#{$top}px;
+		}
+		$left: $left + 90;
+	}
+
+	.box {
+		height: 283px;
+		overflow: hidden;
+	}
+	.score {
+    width: 285px;
+	}
+	.date {
+    width: 26%;
+	}
+	.m-expand-box {
+		height: 80vh !important;
+	}
+}
