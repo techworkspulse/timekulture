@@ -1,0 +1,72 @@
+@font-face {
+  font-family: Orbitron-Medium;
+  src: url('../fonts/Orbitron-Medium.eot');
+  src: url('../fonts/Orbitron-Medium.woff2') format('woff2'),
+       url('../fonts/Orbitron-Medium.woff') format('woff'),
+       url('../fonts/Orbitron-Medium.ttf') format('truetype'),
+       url('../fonts/Orbitron-Medium.svg#Orbitron-Medium') format('svg'),
+       url('../fonts/Orbitron-Medium.eot?#iefix') format('embedded-opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Orbitron-Regular;
+  src: url('../fonts/Orbitron-Regular.eot');
+  src: url('../fonts/Orbitron-Regular.woff2') format('woff2'),
+       url('../fonts/Orbitron-Regular.woff') format('woff'),
+       url('../fonts/Orbitron-Regular.ttf') format('truetype'),
+       url('../fonts/Orbitron-Regular.svg#Orbitron-Regular') format('svg'),
+       url('../fonts/Orbitron-Regular.eot?#iefix') format('embedded-opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Orbitron-Bold;
+  src: url('../fonts/Orbitron-Bold.eot');
+  src: url('../fonts/Orbitron-Bold.woff2') format('woff2'),
+       url('../fonts/Orbitron-Bold.woff') format('woff'),
+       url('../fonts/Orbitron-Bold.ttf') format('truetype'),
+       url('../fonts/Orbitron-Bold.svg#Orbitron-Bold') format('svg'),
+       url('../fonts/Orbitron-Bold.eot?#iefix') format('embedded-opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Orbitron-Black;
+  src: url('../fonts/Orbitron-Black.eot');
+  src: url('../fonts/Orbitron-Black.woff2') format('woff2'),
+       url('../fonts/Orbitron-Black.woff') format('woff'),
+       url('../fonts/Orbitron-Black.ttf') format('truetype'),
+       url('../fonts/Orbitron-Black.svg#Orbitron-Black') format('svg'),
+       url('../fonts/Orbitron-Black.eot?#iefix') format('embedded-opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Montserrat-Medium;
+  src: url('../fonts/Montserrat-Medium.eot');
+  src: url('../fonts/Montserrat-Medium.woff2') format('woff2'),
+       url('../fonts/Montserrat-Medium.woff') format('woff'),
+       url('../fonts/Montserrat-Medium.ttf') format('truetype'),
+       url('../fonts/Montserrat-Medium.svg#Montserrat-Medium') format('svg'),
+       url('../fonts/Montserrat-Medium.eot?#iefix') format('embedded-opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Montserrat-Regular;
+  src: url('../fonts/Montserrat-Regular.eot');
+  src: url('../fonts/Montserrat-Regular.woff2') format('woff2'),
+       url('../fonts/Montserrat-Regular.woff') format('woff'),
+       url('../fonts/Montserrat-Regular.ttf') format('truetype'),
+       url('../fonts/Montserrat-Regular.svg#Montserrat-Regular') format('svg'),
+       url('../fonts/Montserrat-Regular.eot?#iefix') format('embedded-opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
