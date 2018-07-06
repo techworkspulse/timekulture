@@ -1,5 +1,8 @@
 $(document).ready(function() {
 
+	var completionStatus = 0;
+	var points = 1000;
+
 
 	var box = $(".box"),
 		orginal = [0, 1, 2, 3, 4, 5, 6, 7, 8],
@@ -40,19 +43,26 @@ $(document).ready(function() {
 	var random = getPuzzleId(); 
 
 
-	$('.me').css({"background-image" : 'url('+images[random]+')'});
+	$('.full').css({"background-image" : 'url('+images[random]+')'});
 
 	$(".start").click(function() {
-		$(".start").delay(100).slideUp(500);
-		$(".full, .start-container").hide();
+		$(".start-container").fadeOut();
+		$('.full').css({"background-image" : 'none'});
+		$(".box").css({"background-image" : 'url('+images[0]+')', "background-repeat" : "no-repeat"});
+		setTimeout(function() {
+			$(".box").addClass("hide-bg-img");
+		}, 1000);
+		$(".full").delay( 1000 ).slideUp( 300 );
 		$(".pre_img").addClass("prevent_click");
 
 		date1 = new Date();
 		Start();
+		submitMatchLog();
 		return 0;
 	});
 
 	function Start() {
+		completionStatus = 0;
 		randomTile();
 		changeBG(random);
 		var count = 0,
@@ -97,6 +107,11 @@ $(document).ready(function() {
 				date2 = new Date();
 				timeDifferece();
 				showScore();
+				submitData();
+				$('#player-final-score').html();
+				$('#player-final-score').html(points);
+				$('#player-final-time').html();
+				$('#player-final-time').html('Time: '+ mm + ' Minutes ' + ss + ' Second');
 				return 0;
 			}
 		});
@@ -184,6 +199,7 @@ $(document).ready(function() {
 		$('#min').html(mm);
 		$('#sec').html(ss);
 		$('#moves').html(moves);
+		completionStatus = 1;
 		$('.box').css({"background" : "rgba(0,0,0,0.5)"});
 		$('.box').addClass('m-expand-box');
 		setTimeout(function(){
@@ -233,4 +249,86 @@ $(document).ready(function() {
         }
 
     }
+
+    function submitMatchLog() {
+		var minutes = 0;
+		var seconds = 0;
+
+		var countdownTimer = setInterval(function () {
+			if(completionStatus == 1)
+			{
+				clearInterval(countdownTimer);
+			}
+			else
+			{
+				seconds++;
+				minutes = Math.floor(seconds / 60);
+				if (points != 0)
+				{
+					points = points - 2;
+					$('#player-points').html();
+					$('#player-points').html(points);
+				}
+				//reducePoint();
+
+				if (seconds == 60)
+				{
+					seconds = 0;
+				}
+			}			
+		}, 1000);
+
+		var downloadTimer = setInterval(function () {
+			if(completionStatus == 1)
+			{
+				clearInterval(downloadTimer);
+			}
+			else
+			{
+				$.ajax({
+					type: "POST",
+					headers: {'X-CSRF-TOKEN': $('meta[name="csrf_token"]').attr('content')},
+					url: "storeMatchLog",
+					data: {
+						'uniqueToken': $('#uniqueToken').val(),
+						'matchId': $('#matchId').val(),
+						'puzzleId': random,
+						'minutes': minutes,
+						'seconds': seconds,
+						'moves': moves,
+						'points': points,
+					},
+					success: function(status) {
+						
+					},
+					error: function(jqXHR, exception) {
+
+					}
+				});
+			}
+		}, 3000);
+	}
+
+	function submitData() {
+		$.ajax({
+			type: "POST",
+			headers: {'X-CSRF-TOKEN': $('meta[name="csrf_token"]').attr('content')},
+			url: "/storeMatchData",
+			data: {
+				'uniqueToken': $('#uniqueToken').val(),
+				'matchId': $('#matchId').val(),
+				'moves': moves,
+				'minutes': mm,
+				'seconds': ss,
+				'puzzleId': random,
+				'points': points,
+			},
+			success: function(status) {
+				
+			},
+			errpr: function(jqXHR, exception) {
+
+			}
+		});
+	}
 });

@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Validator;
 use App\Player;
 use App\Match;
 use App\MatchLog;
+use App\Reward;
 
 class GeneralController extends Controller
 {
@@ -18,12 +19,17 @@ class GeneralController extends Controller
 
 	public function game()
 	{
-		return view('game-tk');
+		return view('gametk');
 	}
 
 	public function index()
 	{
 		return view('index');
+	}
+
+	public function bonus()
+	{
+		return view('bonus');
 	}
 
 	protected function createPlayerValidator(array $data)
@@ -83,7 +89,7 @@ class GeneralController extends Controller
 	        	$player->phone = $data['phone'];
 	        	$player->email = $data['email'];
 	        	$player->ic_number = $data['icNumber'];
-	        	$player->live_count = 3;
+	        	$player->live_count = 9;
 	        	$player->dailywinner_status = 0;
 	        	$player->voucher_status = 0;
 	        	$player->unique_token = $uniqueToken;
@@ -248,6 +254,70 @@ class GeneralController extends Controller
     	$match = Match::where('player_id',$player->id)->where('id',$data['matchId'])->first();
     	$match->points = --$match->points;
     	$match->save();
+
+    	$result = array('status' => true,'message' => ''); 
+
+    	return $result;
+    }
+
+    public function addExtraPoints(Request $request)
+    {
+    	$data = $request->all();
+
+    	$player = Player::where('unique_token',$data['uniqueToken'])->first();
+
+    	$match = Match::where('player_id',$player->id)->where('id',$data['matchId'])->first();
+    	$match->points = $match->points + 100;
+    	$match->save();
+
+    	$reward = Reward::where('player_id',$player->id)->where('match_id',$data['matchId'])->first();
+
+    	if($reward)
+    	{
+
+    	}
+    	else
+    	{
+    		$reward = new Reward;
+	    	$reward->player_id = $player->id;
+	    	$reward->match_id = $data['matchId'];
+	    	if(isset($data['video']))
+	    	{
+				$reward->video = $data['video'];
+	    	}
+	    	else
+	    	{
+	    		$reward->video = 0;
+	    	}
+
+	    	if(isset($data['share']))
+	    	{
+				$reward->share = $data['share'];
+	    	}
+	    	else
+	    	{
+	    		$reward->share = 0;
+	    	}
+
+	    	if(isset($data['invitation']))
+	    	{
+				$reward->invitation = $data['invitation'];
+	    	}
+	    	else
+	    	{
+	    		$reward->invitation = 0;
+	    	}
+
+	    	if(isset($data['instagramFollow']))
+	    	{
+				$reward->instagram_follow = $data['instagramFollow'];
+	    	}
+	    	else
+	    	{
+	    		$reward->instagram_follow = 0;
+	    	}
+	   		$reward->save();
+    	}
 
     	$result = array('status' => true,'message' => ''); 
 

@@ -1,11 +1,82 @@
-@media (max-width: 1024px) {  
-  .prize-container {
-      width: 100%; 
+@media (min-width: 1600px) {  
+  .bonus-container { 
+      padding: 25px 0 0 0; 
+  }
+
+  .tk-logo-banner { 
+      max-height: 35em;
+  }
+
+  .scoreboard { 
+      padding: 30px 20px 30px 100px; 
+      font-size: 1.5em;
+      text-align: left;
   }
 
 }
 
+
+@media (max-width: 1440px) {  
+
+  .score-num {
+      line-height: 30px;
+  }
+
+  .score-container-inner {
+      width: 90%; 
+  }
+}
+
+@media (max-width: 1024px) {  
+  .prize-container {
+      width: 100%; 
+  }
+  header .intro-text .intro-lead-in { 
+      font-size: 2.5em; 
+  }
+
+  .bonus-container {
+      width: 80%;
+  }
+
+  .timekulture-modal .modal-content { 
+      padding: 200px 0; 
+  }
+
+  .timekulture-modal .modal-dialog { 
+      max-width: 90%;
+      width: 90%;
+  }
+
+  #watchvideo .modal-content ,
+  #instagram .modal-content  {
+      padding: 80px 0;
+  }
+
+
+  #congratspoints-watchvideo-content .modal-body,
+  #congratspoints-instagram-content .modal-body,
+  #congratspoints-share-content .modal-body {
+    padding: 150px 0;
+  }
+
+  .scoreboard { 
+      padding: 30px 25px 30px 50px; 
+      font-size: 1.2em;
+      text-align: left;
+  }
+
+  .score-num {
+      line-height: 30px;
+  }
+
+  .score-container-inner {
+      width: 90%; 
+  }
+}
+
 @media (max-width: 768px) {  
+
   .bg-flag { 
       padding: 50px 0 0px 0  !important;
   }
@@ -27,43 +98,138 @@
   .prize-container { 
     padding: 40px 0; 
   }
+
+  header {
+    background-image: url('../img/tk/mobile-bg-05.png');
+    background-position: center top;  
+    background-size: cover;
+    height: 100vh; 
+    background-color: #070707;
+  }
+
+  header .intro-text .intro-lead-in { 
+      font-size: 2.5em; 
+  }
+
+  .bonus-container {
+      width: 80%; 
+  }
+
+  .bonus-container-inner h5 {
+      font-size: 22px; 
+  }
       
+  .bonus-container-inner p { 
+      font-size: 18px;
+      margin-bottom: 40px; 
+  }
+
+  .bonus-action { 
+      padding: 20px;
+      max-width: 18em; 
+      min-height: 13em;
+  }
+
+  .bonus-action p { 
+      font-size: 15px !important; 
+      margin-bottom: 0 !important;
+  }
+
+  .timekulture-modal .modal-content { 
+      padding: 200px 0; 
+  }
+
+  .timekulture-modal .modal-dialog { 
+      max-width: 90%;
+      width: 90%;
+  }
+
+  #watchvideo .modal-content ,
+  #instagram .modal-content  {
+      padding: 80px 0;
+  }
+
+  #congratspoints-watchvideo-content .modal-body,
+  #congratspoints-instagram-content .modal-body,
+  #congratspoints-share-content .modal-body {
+    padding: 150px 0;
+  }
+
+  .score-container-inner {
+      width: 90%; 
+  }
+
+  .score-container-inner p {
+    color: #fff !important;
+    font-size: 12px;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+    margin-top: 15px;
+    line-height: 18px;
+  }
+
+  .score-container h5 {
+      font-size: 20px; 
+  }
+
+  .score-container h6 { 
+    font-size: 18px;
+    margin-bottom: 10px;
+  } 
 }
 
 @media (max-width: 480px) {   
-    .tk-logo-banner {
-        margin: 0 auto 25px auto;
-        max-width: 90%;
-    }
 
-    .btn-tk {  
-      font-weight: 500 !important;
-      font-size: 12px !important;
-      padding: 13px 22px !important;  
-      letter-spacing: 1px;
-    }
+  header {
+    background-image: url('../img/tk/mobile-bg-05.png');
+    background-position: center top;  
+    background-size: contain;
+    height: 100vh; 
+    background-color: #070707;
+  }
 
-    section h2.section-heading {
-      font-size: 1.75em; 
-      margin-bottom: 30px; 
-    }
+  header .intro-text .intro-lead-in { 
+      font-size: 1.65em; 
+  }
 
-    section h3.section-subheading {
-      font-size: 14px; 
-      line-height: 20px;
-    }
+  .bg-flag .container {
+    padding: 75px 0; 
+  }
 
-    .prize-container {
-      width: 100%;
-      padding: 50px 0; 
-    }
+  .tk-logo-banner {
+    margin: 0 auto 25px auto;
+    width: auto;
+    max-height: 15em;
+  }
 
-    .prize-box {
-      border: 2px solid #fff;
-      border-radius: 10px;
-      padding: 15px 10px;
-      max-width: 20em;
-      margin: 0 auto 50px auto;
+  .btn-tk {  
+    font-weight: 500 !important;
+    font-size: 12px !important;
+    padding: 13px 22px !important;  
+    letter-spacing: 1px;
+  }
+
+  section h2.section-heading {
+    font-size: 1.5em; 
+    margin-bottom: 30px; 
+  }
+
+  section h3.section-subheading {
+    font-size: 14px; 
+    line-height: 20px;
+  }
+
+  .prize-container {
+    width: 100%;
+    padding: 50px 0; 
+  }
+
+  .prize-box {
+    border: 2px solid #fff;
+    border-radius: 10px;
+    padding: 15px 10px;
+    max-width: 20em;
+    margin: 0 auto 50px auto;
   }
 
   .prize-box h4 { 
@@ -77,8 +243,9 @@
   }
 
   .simple-linear { 
-      padding: 0em;
-      margin: -12em;
+    padding: 0em;
+    margin: -35%;
+    width: 100%;
   }
 
   section h4.section-heading.line-behind-text span { 
@@ -94,7 +261,7 @@
 
   .form-control,
   .btn-register { 
-    width: 85%; 
+    width: 85% !important; 
   }
 
   header.bonus-checkpoint {
@@ -139,27 +306,39 @@
   }
 
   .bonus-action p { 
-    font-size: 9px;
+    font-size: 9px !important;
     letter-spacing: 0.5px;
     line-height: 14px;
   }
 
   .bonus-action { 
-      padding: 5px;
-      max-width: 20em; 
-      min-height: 11.75em;
+    padding: 15px;
+    max-width: 20em;
+    min-height: 11em;
   }
 
   .timekulture-modal .modal-dialog {
-      margin: 5em auto;
-      height: 70%;
-      width: 95%;
+    margin: 4em auto;
+    height: 75%;
+    width: 95%;
+    max-width: 95%;
   }
 
   #watchvideo .modal-content ,
   #instagram .modal-content,
   #share .modal-content {
       padding: 80px 0;
+  }
+
+
+  #congratspoints-watchvideo-content .modal-body,
+  #congratspoints-instagram-content .modal-body,
+  #congratspoints-share-content .modal-body {
+    padding: 150px 0;
+  }
+
+  .timekulture-modal .modal-content {
+      padding: 150px 0;
   }
 
   .timekulture-modal .close-modal { 
@@ -181,6 +360,76 @@
       width: 70px;
   }
 
+  section h4.section-heading {
+      font-size: 20px;
+      margin-top: 30px;
+      margin-bottom: 0px;
+      text-align: center;
+  }
+
+  .timekulture-modal .close-modal img {
+      width: 25px !important;
+      height: 25px !important; 
+  }
+
+  .width-xs-50 {
+      width: 50% !important;
+  }
+
+  /*SCOREBOARD*/
+
+  .greeting {
+    width: 55%; 
+    font-size: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; 
+  }
+
+  .date { 
+    line-height: 16px;
+    width: 30%;
+    font-size: 10px;
+  }
+
+  .score-container h3 { 
+      font-size: 14px; 
+      line-height: 20px;
+  }
+
+  .score-container-inner {
+      width: 95%;
+      padding:0 0 25px 0;
+      margin: 0 auto;
+  }
+
+  .score-container-inner p {
+    color: #fff !important;
+    font-size: 12px;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+    margin-top: 15px;
+    line-height: 18px;
+  }
+
+  .score-container h5 {
+      font-size: 15px; 
+  }
+
+  .score-container h6 { 
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+
+  .score-num {
+      line-height: 30px;
+  }
+
+  .scoreboard { 
+      padding: 30px 20px 30px 50px; 
+      font-size: 18px; 
+      line-height: 10px;
+  }
 } 
  
 @media (max-width: 360px) { 

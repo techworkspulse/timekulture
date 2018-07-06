@@ -10,4 +10,24 @@
         }
         return $options;
     }
+
+    function getFullNameByToken($uniqueToken)
+    {
+        return (new App\Player)->getFullNameByToken($uniqueToken);
+    }
+
+    function getFullNameById($pid)
+    {
+        return (new App\Player)->getFullNameById($pid);
+    }
+
+    function getScoreboardNames()
+    {
+        return (new App\Match)->getScoreboardNames();
+    }
+
+    function getVideoURL()
+    {
+        return (new App\Video)->getVideoURL();
+    }
 ?>

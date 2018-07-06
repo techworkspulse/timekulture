@@ -24,3 +24,5 @@ Route::post('/storeMatchData', 'GeneralController@storeMatchData')->name('storeM
 Route::get('/getPuzzleId/{token}', 'GeneralController@getPuzzleId')->name('getPuzzleId');
 Route::post('/storeMatchLog', 'GeneralController@storeMatchLog')->name('storeMatchLog');
 Route::post('/calculatePoints', 'GeneralController@calculatePoints')->name('calculatePoints');
+Route::get('/bonus', 'GeneralController@bonus')->name('bonus');
+Route::post('/addExtraPoints', 'GeneralController@addExtraPoints')->name('addExtraPoints');

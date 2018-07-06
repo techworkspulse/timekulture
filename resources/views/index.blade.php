@@ -146,6 +146,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <form id="update-form" method="POST" action="">
+                            {{ csrf_field() }}
                             <div class="row"> 
                                 <div class="col-md-12">
                                     <div class="form-group">
@@ -168,9 +169,6 @@
             </div> 
         </div>
     </section>
-
-
-
 
     <!-- Portfolio Modal 1 -->
     <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
@@ -233,7 +231,7 @@
                     success: function(status) {
                         var result = JSON.parse(status);
                         if (result.status) {
-                            window.location.href = '/gameTK';
+                            window.location.href = '/game?token='+result.message+'&matchid='+result.matchid;
                         } else {
                             $('.help-block').html('');
 
