@@ -159,7 +159,7 @@
                                 <div class="col-lg-12 text-center">
                                     <div id="success"></div>
 
-                                    <a id="update-submit" href="javascript:void(0);" type="button" class="btn btn-xl btn-registe">Go</a>
+                                    <a id="update-submit" href="javascript:void(0);" type="button" class="btn btn-xl btn-register">Go</a>
                                 </div>
 
                             </div>
