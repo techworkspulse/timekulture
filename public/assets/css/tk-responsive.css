@@ -208,9 +208,8 @@
 
     background-size: cover;
 
-    height: 10em; 
-
-    background-color: red;
+    height: 100vh; 
+    background-color: #070707;
 
   }
 
@@ -370,9 +369,11 @@
 
     background-size: contain;
 
-    height: 100vh; 
+    height: 0em; 
 
     background-color: #070707;
+    
+    min-height: 35em
 
   }
 
