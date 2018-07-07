@@ -203,7 +203,8 @@ header {
   -o-background-size: cover;
   text-align: center;
   color: white;
-  min-height: 90vh;
+  min-height: 40em;
+  height: 0;
 }
 
   .bg-flag {
@@ -277,7 +278,8 @@ header {
     -o-background-size: cover;
     text-align: center;
     color: white;
-    min-height: 100vh;
+    min-height: 40em;
+    height: 0;
   }
 
   header .intro-text {
