@@ -544,7 +544,7 @@
 
   header.bonus-checkpoint {
 
-    min-height: 100vh;
+    min-height: 40em;
 
   }
 
@@ -1028,7 +1028,7 @@
 
         header { 
 
-            min-height: 75vh;
+            min-height: 40em;
 
         }
 
