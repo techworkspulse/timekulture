@@ -9,6 +9,7 @@ use App\Player;
 use App\Match;
 use App\MatchLog;
 use App\Reward;
+use App\GeneralModel;
 
 class GeneralController extends Controller
 {
@@ -30,6 +31,11 @@ class GeneralController extends Controller
 	public function bonus()
 	{
 		return view('bonus');
+	}
+
+	public function thankyou()
+	{
+		return view('emails.thankyou');
 	}
 
 	protected function createPlayerValidator(array $data)
@@ -196,6 +202,17 @@ class GeneralController extends Controller
 
     	$player->live_count = --$player->live_count;
     	$player->save();
+
+    	$notificationData = array(
+			'fromEmail' => 'postmaster@mailgun.swisswatchgallery.com.my',
+			'fromName' => 'Timekulture',
+			'toEmail' => (new Player)->getEmailByToken($data['uniqueToken']),
+			'toName' => getFullNameByToken($data['uniqueToken']),
+			'introname' => getFullNameByToken($data['uniqueToken']),
+			'intromessage' => 'Timekulture - Thank You',
+			'content' => '',
+		);
+		$email = (new GeneralModel)->sentEmailNotification($notificationData,'emails.thankyou');
 
     	$result = array('status' => true,'message' => $player->live_count); 
 

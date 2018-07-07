@@ -15,4 +15,9 @@ class Player extends Model
     {
     	return Player::select('name')->where('id',$pid)->first();
     }
+
+    public function getEmailByToken($uniqueToken)
+    {
+    	return Player::select('email')->where('unique_token',$uniqueToken)->first()->email;
+    }
 }

@@ -131,12 +131,6 @@
 	<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
 	<script src="{{ url('assets/js/index.js') }}"></script>
 	<script type="text/javascript">
-		function updateDisplay() {
-		    var value = parseInt($('#stopwatch').find('.value').text(), 10);
-		    value++;
-		    $('#stopwatch').find('.value').text(value);
-		}
-
 		$(document).ready(function() {
 			$('#player-points').html('1000');
 
@@ -156,10 +150,9 @@
 			today = mm + '/' + dd + '/' + yyyy;
 
 			$('.date').append(today);
-			
-			setInterval(updateDisplay, 1); // every millisecond call updateDisplay
 
 			$('#btn-retry').click(function() {
+				//location.href.replace("matchid="+currentPageNum, "page="+newPageNum);
 				window.location.reload(true);
 			});
 		});

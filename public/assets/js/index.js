@@ -1,8 +1,9 @@
 $(document).ready(function() {
 
+	reset();
+
 	var completionStatus = 0;
 	var points = 1000;
-
 
 	var box = $(".box"),
 		orginal = [0, 1, 2, 3, 4, 5, 6, 7, 8],
@@ -63,6 +64,8 @@ $(document).ready(function() {
 
 	function Start() {
 		completionStatus = 0;
+		reset();
+		start();
 		randomTile();
 		changeBG(random);
 		var count = 0,
@@ -106,6 +109,7 @@ $(document).ready(function() {
 			if (arraysEqual(x)) {
 				date2 = new Date();
 				timeDifferece();
+				stop();
 				showScore();
 				submitData();
 				$('#player-final-score').html();
@@ -331,4 +335,49 @@ $(document).ready(function() {
 			}
 		});
 	}
+
+	var timeBegan = null
+	    , timeStopped = null
+	    , stoppedDuration = 0
+	    , started = null;
+
+	function start() {
+	    if (timeBegan === null) {
+	        timeBegan = new Date();
+	    }
+
+	    if (timeStopped !== null) {
+	        stoppedDuration += (new Date() - timeStopped);
+	    }
+	    console.log(stoppedDuration);
+
+	    started = setInterval(clockRunning, 10);	
+	}
+
+	function stop() {
+	    timeStopped = new Date();
+	    clearInterval(started);
+	}
+	 
+	function reset() {
+	    clearInterval(started);
+	    stoppedDuration = 0;
+	    timeBegan = null;
+	    timeStopped = null;
+	    document.getElementById("stopwatch").innerHTML = "00:00:000";
+	}
+
+	function clockRunning(){
+	    var currentTime = new Date()
+	        , timeElapsed = new Date(currentTime - timeBegan - stoppedDuration)
+	        , hour = timeElapsed.getUTCHours()
+	        , min = timeElapsed.getUTCMinutes()
+	        , sec = timeElapsed.getUTCSeconds()
+	        , ms = timeElapsed.getUTCMilliseconds();
+
+	    document.getElementById("stopwatch").innerHTML = 
+	        (min > 9 ? min : "0" + min) + ":" + 
+	        (sec > 9 ? sec : "0" + sec) + ":" + 
+	        (ms > 99 ? ms : ms > 9 ? ms : "00" + ms);
+	};
 });
