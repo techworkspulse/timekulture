@@ -209,6 +209,7 @@
     background-size: cover;
 
     height: 100vh; 
+
     background-color: #070707;
 
   }
@@ -373,7 +374,7 @@
 
     background-color: #070707;
     
-    min-height: 35em
+    min-height: 35em;
 
   }
 
