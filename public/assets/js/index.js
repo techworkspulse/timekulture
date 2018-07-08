@@ -240,6 +240,33 @@ $(document).ready(function() {
         readURL(this);
     });
 
+    $('#btn-retry').click(function() {
+    	var retryPuzzleId = getPuzzleId();
+
+    	$('#uniqueToken').val()
+
+		$.ajax({
+			type: "POST",
+			headers: {'X-CSRF-TOKEN': $('meta[name="csrf_token"]').attr('content')},
+			url: "/retryMatch",
+			data: {
+				'uniqueToken': $('#uniqueToken').val(),
+				'puzzleId': retryPuzzleId,
+			},
+			success: function(status) {
+				var result = JSON.parse(status);
+                if (result.status) {
+					//window.location.reload(true);
+					window.location.href = '/game?token='+$('#uniqueToken').val()+"&matchid="+result.message;
+					//location.href.replace("matchid="+$('#matchId').val()+"#", "matchid="+result.message);
+                }
+			},
+			errpr: function(jqXHR, exception) {
+
+			}
+		});
+	});
+
      function readURL(input) {
         if (input.files && input.files[0]) {
             var reader = new FileReader();

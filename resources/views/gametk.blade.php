@@ -150,11 +150,6 @@
 			today = mm + '/' + dd + '/' + yyyy;
 
 			$('.date').append(today);
-
-			$('#btn-retry').click(function() {
-				//location.href.replace("matchid="+currentPageNum, "page="+newPageNum);
-				window.location.reload(true);
-			});
 		});
 	</script>
 </body>
