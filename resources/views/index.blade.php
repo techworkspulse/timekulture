@@ -208,6 +208,7 @@
     <!-- jQuery -->
     <script src="{{ url('assets/vendor/jquery/jquery.min.js') }}"></script>
 
+
     <!-- Bootstrap Core JavaScript -->
     <script src="{{ url('assets/vendor/bootstrap/js/bootstrap.min.js') }}"></script>
 
@@ -219,6 +220,7 @@
 
     <!-- Theme JavaScript -->
     <script src="{{ url('assets/js/agency.min.js') }}"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/2.1.2/jquery.scrollTo.min.js"></script>
     <script src="{{ url('assets/js/tk.js') }}"></script>
 
     <script type="text/javascript">
