@@ -152,7 +152,7 @@
 
                     <div class="col-xs-12 col-lg-12">
 
-                        <a href="scoreboard.html" class="btn btn-xl btn-scoreboard">Scoreboard</a>
+                        <a href="{{ url('/scoreboard') }}?token={{ app('request')->input('token') }}&matchid={{ app('request')->input('matchid') }}" class="btn btn-xl btn-scoreboard">Scoreboard</a>
 
                     </div>
 

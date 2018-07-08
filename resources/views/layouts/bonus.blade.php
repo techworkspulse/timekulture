@@ -241,6 +241,42 @@
       });
     });  
 
+    $(document).ready(function() {
+      $.ajax({
+        type: "POST",
+        headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+        url: "/getExtraPoints",
+        data: {
+          'uniqueToken': $('#uniqueToken').val(),
+          'matchId': $('#matchId').val(),
+        },
+        success: function(status) {
+          var result = JSON.parse(status);
+          if (result.status) {
+            if (result.video == 1)
+            {
+              $('#watchvideo-panel').addClass('disabled-panel').attr('onclick', 'return false;').removeAttr('data-toggle', 'modal');
+            }
+            if (result.share == 1)
+            {
+              $('#share-panel').addClass('disabled-panel').attr('onclick', 'return false;').removeAttr('data-toggle', 'modal');
+            }
+            if (result.invitation == 1)
+            {
+              $('#invitefriend-panel').addClass('disabled-panel').attr('onclick', 'return false;').removeAttr('data-toggle', 'modal');
+            }
+            if (result.instagram == 1)
+            {
+              $('#instagram-panel').addClass('disabled-panel').attr('onclick', 'return false;').removeAttr('data-toggle', 'modal');
+            }
+          }
+        },
+        errpr: function(jqXHR, exception) {
+
+        }
+      });
+    });
+
 </script>
 
 

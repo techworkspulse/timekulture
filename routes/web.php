@@ -26,4 +26,6 @@ Route::post('/storeMatchLog', 'GeneralController@storeMatchLog')->name('storeMat
 Route::post('/calculatePoints', 'GeneralController@calculatePoints')->name('calculatePoints');
 Route::get('/bonus', 'GeneralController@bonus')->name('bonus');
 Route::post('/addExtraPoints', 'GeneralController@addExtraPoints')->name('addExtraPoints');
-Route::get('/thankyou', 'GeneralController@thankyou')->name('thankyou');
+Route::post('/retryMatch', 'GeneralController@retryMatch')->name('retryMatch');
+Route::get('/scoreboard', 'GeneralController@scoreboard')->name('scoreboard');
+Route::post('/getExtraPoints', 'GeneralController@getExtraPoints')->name('getExtraPoints');

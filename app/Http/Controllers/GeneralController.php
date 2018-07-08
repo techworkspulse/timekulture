@@ -33,9 +33,9 @@ class GeneralController extends Controller
 		return view('bonus');
 	}
 
-	public function thankyou()
+	public function scoreboard()
 	{
-		return view('emails.thankyou');
+		return view('scoreboard');
 	}
 
 	protected function createPlayerValidator(array $data)
@@ -161,6 +161,28 @@ class GeneralController extends Controller
         }
 
         return json_encode($result);
+    }
+
+    public function retryMatch(Request $request)
+    {
+    	$data = $request->all();
+
+    	$player = Player::where('unique_token',$data['uniqueToken'])->first();
+
+    	if($player)
+    	{
+    		$match = new Match;
+    		$match->player_id = $player->id;
+    		$match->save();
+
+    		$result = array('status' => true,'message' => $match->id); 
+    	}
+    	else
+    	{
+    		$result = array('status' => false,'message' => "Invalid token"); 
+    	}
+
+    	return json_encode($result);
     }
 
     public function getIp()
@@ -338,6 +360,26 @@ class GeneralController extends Controller
 
     	$result = array('status' => true,'message' => ''); 
 
-    	return $result;
+    	return json_encode($result);
+    }
+
+    public function getExtraPoints(Request $request)
+    {
+    	$data = $request->all();
+
+    	$player = Player::where('unique_token',$data['uniqueToken'])->first();
+
+    	$reward = Reward::where('player_id',$player->id)->where('match_id',$data['matchId'])->first();
+
+    	if($reward)
+    	{
+			$result = array('status' => true,'message' => '','video' => $reward->video,'share' => $reward->share,'invitation' => $reward->invitation,'instagram' => $reward->instagram_follow); 
+    	}
+    	else
+  		{
+  			$result = array('status' => false,'message' => ''); 
+  		}
+
+    	return json_encode($result);
     }
 }

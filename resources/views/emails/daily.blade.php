@@ -9,21 +9,21 @@
   <table align='center' cellpadding='0' cellspacing='0' style='border-collapse: collapse;max-width: 100%'>
     <tr>
       <td align='center' bgcolor='#000'>
-          <img src="{{ url('assets/img/tk/edm-daily-main.jpg') }}"  style='display: block; max-width: 100%;' alt='Race Against TIme | Time Kulture 2018'>
+          <img src="http://timekulture.swisswatchgallery.com.my/assets/img/tk/edm-daily-main.jpg"  style='display: block; max-width: 100%;' alt='Race Against TIme | Time Kulture 2018'>
       </td>
     </tr>
 
     <tr>
       <td align='center' bgcolor='#000'>
       <a href="#">
-          <img src="{{ url('assets/img/tk/edm-daily-discover.jpg') }}"  style='display: block; max-width: 100%;' alt='Race Against TIme | Time Kulture 2018'>
+          <img src="http://timekulture.swisswatchgallery.com.my/assets/img/tk/edm-daily-discover.jpg"  style='display: block; max-width: 100%;' alt='Race Against TIme | Time Kulture 2018'>
       </a>
       </td>
     </tr>
 
     <tr>
       <td align='center' bgcolor='#000'>
-          <img src="{{ url('assets/img/tk/edm-daily-footer.jpg') }}"  style='display: block; max-width: 100%;' alt='Race Against TIme | Time Kulture 2018'>
+          <img src="http://timekulture.swisswatchgallery.com.my/assets/img/tk/edm-daily-footer.jpg"  style='display: block; max-width: 100%;' alt='Race Against TIme | Time Kulture 2018'>
       </td>
     </tr>
 

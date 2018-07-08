@@ -26,6 +26,11 @@
         return (new App\Match)->getScoreboardNames();
     }
 
+    function getPastScoreboardNames()
+    {
+        return (new App\DailyWinner)->getPastScoreboardNames();
+    }
+
     function getVideoURL()
     {
         return (new App\Video)->getVideoURL();
