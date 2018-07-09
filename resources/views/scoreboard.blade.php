@@ -47,7 +47,7 @@
 
 								<div class="col-md-12 "> 
 
-									<h3> Get ahead with by earning extra points.<span><a class="text-yellow click-here" href="bonus.html"> CLICK HERE</a></span> </h3> 
+									<h3> Get ahead with by earning extra points.<span><a class="text-yellow click-here" href="{{ url('/bonus') }}?token={{ app('request')->input('token') }}&matchid={{ app('request')->input('matchid') }}"> CLICK HERE</a></span> </h3> 
 
 									<p>Check your email at 11:59pm to see if you are the daily champion</p> 
 
