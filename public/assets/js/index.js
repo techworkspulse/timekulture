@@ -49,7 +49,7 @@ $(document).ready(function() {
 	$(".start").click(function() {
 		$(".start-container").fadeOut();
 		$('.full').css({"background-image" : 'none'});
-		$(".box").css({"background-image" : 'url('+images[0]+')', "background-repeat" : "no-repeat"});
+		$(".box").css({"background-image" : 'url('+images[random]+')', "background-repeat" : "no-repeat"});
 		setTimeout(function() {
 			$(".box").addClass("hide-bg-img");
 		}, 1000);
@@ -65,7 +65,9 @@ $(document).ready(function() {
 	function Start() {
 		completionStatus = 0;
 		reset();
-		start();
+		setTimeout(function() {
+			start();
+		}, 1000);
 		randomTile();
 		changeBG(random);
 		var count = 0,

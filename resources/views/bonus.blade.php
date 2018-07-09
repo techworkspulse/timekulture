@@ -711,7 +711,7 @@
 
                                     <div class="col-6 col-sm-6  visible-xs visible-sm"> 
 
-                                        <a href="#instagram-save" data-toggle="modal" ><img src="{{ url('assets/img/tk/instagram-logo.svg') }}" class="img-responsive center-block social-share"></a>
+                                        <a id="instagramshare-btn" href="#instagram-save" data-toggle="modal" ><img src="{{ url('assets/img/tk/instagram-logo.svg') }}" class="img-responsive center-block social-share"></a>
 
                                     </div>
 
@@ -806,7 +806,7 @@
 
                                     <div class="col-12"> 
 
-                                        <img src="{{ url('assets/img/tk-game/TUDOR.jpg') }}" class="img-responsive center-block width-100">
+                                        <img src="<?=getPuzzleURLByMatchId($matchid) ?>" class="img-responsive center-block width-100">
 
                                     </div> 
 
@@ -841,6 +841,15 @@
 @section('customJS')
 <script type="text/javascript">
     $(document).ready(function() {
+        $('#submit-share').addClass('disabled');
+
+        $('#facebookshare-btn').click(function() {
+            $('#submit-share').removeClass('disabled');
+        });
+
+        $('#instagramshare-btn').click(function() {
+            $('#submit-share').removeClass('disabled');
+        })
     });
 </script>
 @endsection

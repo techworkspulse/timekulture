@@ -231,7 +231,7 @@ class GeneralController extends Controller
 			'toEmail' => (new Player)->getEmailByToken($data['uniqueToken']),
 			'toName' => getFullNameByToken($data['uniqueToken']),
 			'introname' => getFullNameByToken($data['uniqueToken']),
-			'intromessage' => 'Timekulture - Thank You',
+			'intromessage' => 'Time Kulture Revolution 2018',
 			'content' => '',
 		);
 		$email = (new GeneralModel)->sentEmailNotification($notificationData,'emails.thankyou');

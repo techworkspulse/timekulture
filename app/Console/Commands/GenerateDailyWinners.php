@@ -63,7 +63,7 @@ class GenerateDailyWinners extends Command
                     'toEmail' => (new Player)->getEmailByToken($data['unique_token']),
                     'toName' => getFullNameByToken($data['unique_token']),
                     'introname' => getFullNameByToken($data['unique_token']),
-                    'intromessage' => 'Timekulture - Thank You',
+                    'intromessage' => 'Time Kulture Revolution 2018',
                     'content' => '',
                 );
                 $email = (new GeneralModel)->sentEmailNotification($notificationData,'emails.daily');

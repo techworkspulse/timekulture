@@ -15,4 +15,9 @@ class Match extends Model
 	{
 		return Match::leftjoin('puzzles','matches.puzzle_id','=','puzzles.id')->select('puzzles.name as name')->where('matches.id',$mid)->first()->name;
 	}
+
+	public function getPuzzleURLByMatchId($mid)
+	{
+		return Match::leftjoin('puzzles','matches.puzzle_id','=','puzzles.id')->select('puzzles.url as url')->where('matches.id',$mid)->first()->url;
+	}
 }
