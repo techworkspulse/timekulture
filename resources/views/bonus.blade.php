@@ -842,6 +842,7 @@
 <script type="text/javascript">
     $(document).ready(function() {
         $('#submit-share').addClass('disabled');
+        $('#submit-watchvideo').addClass('disabled');
 
         $('#facebookshare-btn').click(function() {
             $('#submit-share').removeClass('disabled');
@@ -849,6 +850,10 @@
 
         $('#instagramshare-btn').click(function() {
             $('#submit-share').removeClass('disabled');
+        });
+
+        $('#watchvideo-panel').click(function() {
+            setTimeout(function(){ $('#submit-watchvideo').removeClass('disabled'); }, 15000);
         })
     });
 </script>

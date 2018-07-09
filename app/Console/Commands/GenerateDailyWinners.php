@@ -42,6 +42,8 @@ class GenerateDailyWinners extends Command
      */
     public function handle()
     {
+        $guid = Guid::create();
+
         $match = Match::select('matches.id','matches.player_id','players.unique_token')
                 ->leftjoin('daily_winners','matches.id','=','daily_winners.match_id')
                 ->leftjoin('players','matches.player_id','=','players.id')
@@ -56,7 +58,7 @@ class GenerateDailyWinners extends Command
                 $dailyWinner = new DailyWinner;
                 $dailyWinner->player_id = $item['player_id'];
                 $dailyWinner->match_id = $item['id'];
-                $dailyWinner->guid = Guid::create();
+                $dailyWinner->guid = $guid;
                 $dailyWinner->save();
 
                 $notificationData = array(
@@ -65,7 +67,7 @@ class GenerateDailyWinners extends Command
                     'toEmail' => (new Player)->getEmailByToken($data['unique_token']),
                     'toName' => getFullNameByToken($data['unique_token']),
                     'introname' => getFullNameByToken($data['unique_token']),
-                    'intromessage' => 'Time Kulture Revolution 2018',
+                    'intromessage' => "You've won the daily prize - Time Kulture Revolution 2018 " . $guid,
                     'content' => '',
                 );
                 $email = (new GeneralModel)->sentEmailNotification($notificationData,'emails.daily');

@@ -35,13 +35,14 @@ $(document).ready(function() {
 		})
 		.fail(function(xhr) {
 			//console.log('error', xhr);
-			window.location.href = "/";
+			//window.location.href = "/";
+			$('#btn-retry').addClass('disabled');
 		});
 
 		return number;
 	}
 
-	var random = getPuzzleId(); 
+	var random = parseFloat(getPuzzleId())-1; 
 
 
 	$('.full').css({"background-image" : 'url('+images[random]+')'});
@@ -66,7 +67,7 @@ $(document).ready(function() {
 		completionStatus = 0;
 		reset();
 		setTimeout(function() {
-			start();
+			timerstart();
 		}, 1000);
 		randomTile();
 		changeBG(random);
@@ -185,7 +186,7 @@ $(document).ready(function() {
 
 
 	function changeBG(img){
-		if(img != 3){
+		if(img != 10){
 		$('.me').css({
 			"background-image" : "url("+images[img]+")"
 		});
@@ -325,7 +326,7 @@ $(document).ready(function() {
 					data: {
 						'uniqueToken': $('#uniqueToken').val(),
 						'matchId': $('#matchId').val(),
-						'puzzleId': random,
+						'puzzleId': parseFloat(random)+1,
 						'minutes': minutes,
 						'seconds': seconds,
 						'moves': moves,
@@ -353,7 +354,7 @@ $(document).ready(function() {
 				'moves': moves,
 				'minutes': mm,
 				'seconds': ss,
-				'puzzleId': random+1,
+				'puzzleId': parseFloat(random)+1,
 				'points': points,
 			},
 			success: function(status) {
@@ -370,7 +371,7 @@ $(document).ready(function() {
 	    , stoppedDuration = 0
 	    , started = null;
 
-	function start() {
+	function timerstart() {
 	    if (timeBegan === null) {
 	        timeBegan = new Date();
 	    }

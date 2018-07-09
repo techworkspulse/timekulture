@@ -246,7 +246,7 @@ class GeneralController extends Controller
     	{
     		do
 	    	{
-	    		$random = rand(0,2);
+	    		$random = rand(1,9);
 	    		$match = Match::where('player_id',$player->id)->where('puzzle_id',$random)->count();
 	    	}
 	    	while($match != 0);
@@ -303,35 +303,41 @@ class GeneralController extends Controller
     	$player = Player::where('unique_token',$data['uniqueToken'])->first();
 
     	$match = Match::where('player_id',$player->id)->where('id',$data['matchId'])->first();
-    	$match->points = $match->points + 100;
-    	$match->save();
 
     	$reward = Reward::where('player_id',$player->id)->where('match_id',$data['matchId'])->first();
 
     	if($reward)
     	{
     		$reward->player_id = $player->id;
-		    	$reward->match_id = $data['matchId'];
-		    	if(isset($data['video']))
-		    	{
-					$reward->video = $data['video'];
-		    	}
+	    	$reward->match_id = $data['matchId'];
+	    	if(isset($data['video']))
+	    	{
+				$reward->video = $data['video'];
+				$match->points = $match->points + 50;
+    			$match->save();
+	    	}
 
-		    	if(isset($data['share']))
-		    	{
-					$reward->share = $data['share'];
-		    	}
+	    	if(isset($data['share']))
+	    	{
+				$reward->share = $data['share'];
+				$match->points = $match->points + 100;
+    			$match->save();
+	    	}
 
-		    	if(isset($data['invitation']))
-		    	{
-					$reward->invitation = $data['invitation'];
-		    	}
+	    	if(isset($data['invitation']))
+	    	{
+				$reward->invitation = $data['invitation'];
+				$match->points = $match->points + 100;
+    			$match->save();
+	    	}
 
-		    	if(isset($data['instagramFollow']))
-		    	{
-					$reward->instagram_follow = $data['instagramFollow'];
-		    	}
-		   		$reward->save();
+	    	if(isset($data['instagramFollow']))
+	    	{
+				$reward->instagram_follow = $data['instagramFollow'];
+				$match->points = $match->points + 50;
+    			$match->save();
+	    	}
+	   		$reward->save();
     	}
     	else
     	{
@@ -341,6 +347,8 @@ class GeneralController extends Controller
 	    	if(isset($data['video']))
 	    	{
 				$reward->video = $data['video'];
+				$match->points = $match->points + 50;
+    			$match->save();
 	    	}
 	    	else
 	    	{
@@ -350,6 +358,8 @@ class GeneralController extends Controller
 	    	if(isset($data['share']))
 	    	{
 				$reward->share = $data['share'];
+				$match->points = $match->points + 100;
+    			$match->save();
 	    	}
 	    	else
 	    	{
@@ -359,6 +369,8 @@ class GeneralController extends Controller
 	    	if(isset($data['invitation']))
 	    	{
 				$reward->invitation = $data['invitation'];
+				$match->points = $match->points + 100;
+    			$match->save();
 	    	}
 	    	else
 	    	{
@@ -368,6 +380,8 @@ class GeneralController extends Controller
 	    	if(isset($data['instagramFollow']))
 	    	{
 				$reward->instagram_follow = $data['instagramFollow'];
+				$match->points = $match->points + 50;
+    			$match->save();
 	    	}
 	    	else
 	    	{
