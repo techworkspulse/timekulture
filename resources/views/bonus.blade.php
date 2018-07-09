@@ -1,6 +1,6 @@
 @extends('layouts.bonus')
 
-@section('title', 'Time Kulture 2018')
+@section('title', 'Bonus Checkpoints')
 
 @section('content')
     <input type="hidden" id="uniqueToken" name="uniqueToken" value="{{ app('request')->input('token') }}">
@@ -720,8 +720,8 @@
 
 
                                     <div class="col-6 col-sm-12 col-md-12"> 
-
-                                        <a id="facebookshare-btn" href="https://www.facebook.com/sharer/sharer.php?u=http%3A//www.swisswatchgallery.com.my/timekulturerevolution/" target="_blank"><img src="{{ url('assets/img/tk/003-facebook-logo-button.svg') }}" class="img-responsive center-block social-share"></a>
+                                        @php($matchid = app('request')->input('matchid'))
+                                        <a id="facebookshare-btn" href="https://www.facebook.com/sharer/sharer.php?img={{getPuzzleNameByMatchId($matchid)}}&u=http%3A//www.swisswatchgallery.com.my/timekulturerevolution/" target="_blank"><img src="{{ url('assets/img/tk/003-facebook-logo-button.svg') }}" class="img-responsive center-block social-share"></a>
 
                                     </div>
 

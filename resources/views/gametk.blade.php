@@ -1,6 +1,6 @@
 @extends('layouts.user')
 
-@section('title', 'Time Kulture 2018')
+@section('title', 'Race Against Time')
 
 @section('content')
 
