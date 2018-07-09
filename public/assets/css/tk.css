@@ -362,7 +362,7 @@ section h3.section-subheading {
     color: #fff;
 }
 section h4.section-heading {
-  font-size: 35px;
+  font-size: 25px; /*khairul's update*/
   margin-top: 0;
   margin-bottom: 30px;
   font-family: Orbitron-Bold;
@@ -897,7 +897,7 @@ body {
   font-family: Orbitron-Bold;
   text-transform: none;
   color: #fff !important;
-  font-size: 35px;
+  font-size: 30px; /*khairul's update*/
   margin-bottom: 20px;
 }
 

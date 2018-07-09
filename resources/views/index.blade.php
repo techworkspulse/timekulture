@@ -135,12 +135,9 @@
 
     <section id="playagain-section" class="bg-street"> 
         <div class="container">
-
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h4 class="section-heading line-behind-text-yellow"><span>ENTER YOUR EMAIL TO START YOUR ENGINE</span></h4> 
-                </div>
-            </div> 
+            <div class="col-lg-12 text-center">
+                <h4 class="section-heading line-behind-text-yellow"><span>ENTER YOUR EMAIL TO START YOUR ENGINE</span></h4> 
+            </div>
 
             <div class="prize-container p-bot-0"> 
                 <div class="row">
