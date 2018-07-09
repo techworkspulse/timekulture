@@ -161,21 +161,6 @@
           data: {
             'uniqueToken': $('#uniqueToken').val(),
             'email': $('#email').val(),
-          },
-          success: function(status) {
-            
-          },
-          error: function(jqXHR, exception) {
-
-          }
-      });
-
-        $.ajax({
-        type: "POST",
-          headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-          url: "addExtraPoints",
-          data: {
-            'uniqueToken': $('#uniqueToken').val(),
             'matchId': $('#matchId').val(),
             'invitation': 1,
           },

@@ -282,7 +282,7 @@
 
                             <div class="modal-body">  
 
-                                <p>Congrats! You have earned 100 points!</p>
+                                <p>Congrats! Your friend has received an email invitation. You will receive your points when your friend has registered.</p>
 
 
 

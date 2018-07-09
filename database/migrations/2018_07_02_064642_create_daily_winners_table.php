@@ -17,6 +17,7 @@ class CreateDailyWinnersTable extends Migration
             $table->increments('id');
             $table->integer('player_id');
             $table->integer('match_id');
+            $table->string('guid');
             $table->timestamps();
         });
     }

@@ -92,12 +92,12 @@
                                         <p id="phone-error" class="help-block text-danger"></p>
                                     </div>
                                 </div>
-                                <div class="col-md-12">
+                                <!--<div class="col-md-12">
                                     <div class="form-group">
                                         <input type="text" class="form-control" placeholder="IC Number *" id="ic-number" name="icNumber"  required data-validation-required-message="Please enter your ic number.">
                                         <p id="ic-number-error" class="help-block text-danger"></p>
                                     </div>
-                                </div>
+                                </div>-->
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <select class="form-control" name="gender" id="gender" name="gender">
@@ -252,10 +252,6 @@
                             {
                                 $('#phone-error').html(obj['phone']);
                             }
-                            if (obj['icNumber'] != '')
-                            {
-                                $('#ic-number-error').html(obj['icNumber']);
-                            }
                             if (obj['gender'] != '')
                             {
                                 $('#gender-error').html(obj['gender']);
@@ -276,7 +272,7 @@
                     success: function(status) {
                         var result = JSON.parse(status);
                         if (result.status) {
-                            window.location.href = '/gameTK';
+                            window.location.href = '/game?token='+result.message+'&matchid='+result.matchid;
                         } else {
                             $('.help-block').html('');
                             $('#update-email-error').html(result.message);

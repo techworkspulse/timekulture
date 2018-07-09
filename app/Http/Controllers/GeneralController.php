@@ -45,7 +45,6 @@ class GeneralController extends Controller
 			'gender' => 'required',
 			'phone' => 'required|digits_between:9,13',
 			'email' => 'required|email',
-			'icNumber' => 'required|digits:12',
 		]);
 	}
 
@@ -76,7 +75,6 @@ class GeneralController extends Controller
 		        	$player->gender_id = $data['gender'];
 		        	$player->phone = $data['phone'];
 		        	$player->email = $data['email'];
-		        	$player->ic_number = $data['icNumber'];
 		        	$player->unique_token = $uniqueToken;
 		        	$player->save();
 
@@ -94,7 +92,6 @@ class GeneralController extends Controller
 	        	$player->gender_id = $data['gender'];
 	        	$player->phone = $data['phone'];
 	        	$player->email = $data['email'];
-	        	$player->ic_number = $data['icNumber'];
 	        	$player->live_count = 9;
 	        	$player->dailywinner_status = 0;
 	        	$player->voucher_status = 0;
@@ -313,7 +310,28 @@ class GeneralController extends Controller
 
     	if($reward)
     	{
+    		$reward->player_id = $player->id;
+		    	$reward->match_id = $data['matchId'];
+		    	if(isset($data['video']))
+		    	{
+					$reward->video = $data['video'];
+		    	}
 
+		    	if(isset($data['share']))
+		    	{
+					$reward->share = $data['share'];
+		    	}
+
+		    	if(isset($data['invitation']))
+		    	{
+					$reward->invitation = $data['invitation'];
+		    	}
+
+		    	if(isset($data['instagramFollow']))
+		    	{
+					$reward->instagram_follow = $data['instagramFollow'];
+		    	}
+		   		$reward->save();
     	}
     	else
     	{
@@ -399,13 +417,101 @@ class GeneralController extends Controller
 				'introname' => $firstName[0],
 				'intromessage' => getFullNameByToken($data['uniqueToken']) . ' has invited you to play Race Against Time - Time Kulture Revolution 2018',
 				'content' => '',
+				'uniqueToken' => $data['uniqueToken'],
+				'matchId' => $data['matchId'],
 			);
 
 			$email = (new GeneralModel)->sentEmailNotification($notificationData,'emails.invitation');
+
+			$reward = Reward::where('player_id',$player->id)->where('match_id',$data['matchId'])->first();
+
+	    	if($reward)
+	    	{
+	    		$reward->player_id = $player->id;
+		    	$reward->match_id = $data['matchId'];
+		    	if(isset($data['video']))
+		    	{
+					$reward->video = $data['video'];
+		    	}
+
+		    	if(isset($data['share']))
+		    	{
+					$reward->share = $data['share'];
+		    	}
+
+		    	if(isset($data['invitation']))
+		    	{
+					$reward->invitation = $data['invitation'];
+		    	}
+
+		    	if(isset($data['instagramFollow']))
+		    	{
+					$reward->instagram_follow = $data['instagramFollow'];
+		    	}
+		   		$reward->save();
+	    	}
+	    	else
+	    	{
+	    		$reward = new Reward;
+		    	$reward->player_id = $player->id;
+		    	$reward->match_id = $data['matchId'];
+		    	if(isset($data['video']))
+		    	{
+					$reward->video = $data['video'];
+		    	}
+		    	else
+		    	{
+		    		$reward->video = 0;
+		    	}
+
+		    	if(isset($data['share']))
+		    	{
+					$reward->share = $data['share'];
+		    	}
+		    	else
+		    	{
+		    		$reward->share = 0;
+		    	}
+
+		    	if(isset($data['invitation']))
+		    	{
+					$reward->invitation = $data['invitation'];
+		    	}
+		    	else
+		    	{
+		    		$reward->invitation = 0;
+		    	}
+
+		    	if(isset($data['instagramFollow']))
+		    	{
+					$reward->instagram_follow = $data['instagramFollow'];
+		    	}
+		    	else
+		    	{
+		    		$reward->instagram_follow = 0;
+		    	}
+		   		$reward->save();
+		   	}
 
 			$result = array('status' => true,'message' => '');
     	}
 
     	return json_encode($result);
+    }
+
+    public function earnPoints($uniqueToken, $matchId)
+    {
+    	$player = Match::leftjoin('players','matches.player_id','=','players.id')->select('matches.id as id')->where('unique_token',$uniqueToken)->where('matches.id',$matchId)->first();
+
+    	if ($player)
+    	{
+    		$match = Match::where('id',$player->id)->first();
+    		$match->points = $match->points + 100;
+    		$match->save();
+
+    		return redirect('');
+    	}
+
+    	return redirect(''); 
     }
 }

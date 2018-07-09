@@ -32,7 +32,7 @@
   <table align="center" cellpadding="0" cellspacing="0" width="800" style="border-collapse: collapse;">
     <tr>
       <td align="left" bgcolor="#fff" style="padding: 0;">
-        <img src="http://timekulture.swisswatchgallery.com.my/assets/img/tk/tk_bg_1.jpg" style="display: block; width: 100%;" alt="Invite a friend | Time Kulture 2018">
+        <img src="http://timekulture.swisswatchgallery.com.my/assets/img/tk/tk-banner.jpg" style="display: block; width: 100%;" alt="Invite a friend | Time Kulture 2018">
       </td>
     </tr>
 
@@ -57,7 +57,7 @@
 
                 <tr>
                   <td width="260" valign="top" align="center">
-                    <a href="#" style="color: #000; background-color: #ffcb00; border: 2px solid #ffcb00; text-transform: uppercase; font-weight: 700; font-size: 18px; padding: 10px 30px; border-radius: 10px;  letter-spacing: 1px; text-decoration: none;">Play now!</a>
+                    <a href="http://timekulture.swisswatchgallery.com.my/earnPoints/{{$data['uniqueToken']}}/{{$data['matchId']}}"" style="color: #000; background-color: #ffcb00; border: 2px solid #ffcb00; text-transform: uppercase; font-weight: 700; font-size: 18px; padding: 10px 30px; border-radius: 10px;  letter-spacing: 1px; text-decoration: none;">Play now!</a>
                   </td>
                 </tr>    
               </table>

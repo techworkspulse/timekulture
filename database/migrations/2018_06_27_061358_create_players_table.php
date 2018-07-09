@@ -19,7 +19,6 @@ class CreatePlayersTable extends Migration
             $table->integer('gender_id');
             $table->string('phone');
             $table->string('email');
-            $table->string('ic_number');
             $table->integer('live_count');
             $table->integer('dailywinner_status');
             $table->integer('voucher_status');

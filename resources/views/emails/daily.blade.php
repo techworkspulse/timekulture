@@ -15,7 +15,7 @@
 
     <tr>
       <td align='center' bgcolor='#000'>
-      <a href="#">
+      <a href="http://www.swisswatchgallery.com.my/timekulturerevolution/">
           <img src="http://timekulture.swisswatchgallery.com.my/assets/img/tk/edm-daily-discover.jpg"  style='display: block; max-width: 100%;' alt='Race Against TIme | Time Kulture 2018'>
       </a>
       </td>

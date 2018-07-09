@@ -7,6 +7,7 @@ use App\DailyWinner;
 use App\Match;
 use App\Player;
 use App\GeneralModel;
+use Sujip\Guid\Guid;
 
 class GenerateDailyWinners extends Command
 {
@@ -55,6 +56,7 @@ class GenerateDailyWinners extends Command
                 $dailyWinner = new DailyWinner;
                 $dailyWinner->player_id = $item['player_id'];
                 $dailyWinner->match_id = $item['id'];
+                $dailyWinner->guid = Guid::create();
                 $dailyWinner->save();
 
                 $notificationData = array(
