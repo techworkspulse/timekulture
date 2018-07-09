@@ -1640,6 +1640,8 @@ select option {
     top: 0;
     bottom: 0;
     right: 0;
+    background: #000;
+    height:50em;
     opacity: 0.8;
     z-index: 99999;
     filter: alpha(opacity=80);
