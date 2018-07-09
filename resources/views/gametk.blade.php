@@ -108,7 +108,7 @@
 							<div class="r-m text-center">
 								<div class="mb-4 w-fix text-large f-montserrate uppercase">Get ahead with by earning extra points.<span><a class="text-yellow click-here" href="{{ url('/bonus') }}?token={{ app('request')->input('token') }}&matchid={{ app('request')->input('matchid') }}"> CLICK HERE</a></span></div>
 								<p class="text-yellow f-montserrate mb-1 mlh">Check your email at 11:59pm to see if you are the daily champion</p>
-								<a href="" class="text-white text-underline tnc f-montserrate">Terms & Conditions</a>
+								<a href="/Time_Kulture_2018_TC_Puzzle_Game.pdf" target="_blank" class="text-white text-underline tnc f-montserrate">Terms & Conditions</a>
 							</div>
 						</div>
 					</div>

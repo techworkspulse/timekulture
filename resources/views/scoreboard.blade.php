@@ -215,7 +215,7 @@
 
 									<p class="text-yellow  hidden-xs hidden-sm">Check your email at 11:59pm to see if you are the daily champion</p>
 
-									<a href="#" class="tnc">Terms & Conditions</a> 
+									<a href="/Time_Kulture_2018_TC_Puzzle_Game.pdf" target="_blank" class="tnc">Terms & Conditions</a> 
 
 								</div>
 

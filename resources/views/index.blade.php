@@ -125,7 +125,7 @@
                         <div class="clearfix"></div>
 
                         <div class="col-md-12">
-                            <p class="terms"><a href="#">Terms & Conditions</a></p>
+                            <p class="terms"><a href="/Time_Kulture_2018_TC_Puzzle_Game.pdf" target="_blank">Terms & Conditions</a></p>
                         </div>
                     </div>
                 </div>
@@ -226,11 +226,14 @@
     <script type="text/javascript">
         $(document).ready(function() {
             $('#register-submit').on('click', function(e) {
+                $('#register-submit').addClass('disabled');
+
                 $.ajax({
                     type: "POST",
                     url: "/createPlayer",
                     data: $("#registration-form").serialize(),
                     success: function(status) {
+                        $('#register-submit').removeClass('disabled');
                         var result = JSON.parse(status);
                         if (result.status) {
                             window.location.href = '/game?token='+result.message+'&matchid='+result.matchid;
@@ -259,17 +262,20 @@
                         }
                     },
                     errpr: function(jqXHR, exception) {
-                        alert(jqXHR);
+                        $('#register-submit').removeClass('disabled');
+                        //alert(jqXHR);
                     }
                 });
             });
 
             $('#update-submit').on('click', function(e) {
+                $('#update-submit').addClass('disabled');
                 $.ajax({
                     type: "POST",
                     url: "/updatePlayer",
                     data: $("#update-form").serialize(),
                     success: function(status) {
+                        $('#update-submit').removeClass('disabled');
                         var result = JSON.parse(status);
                         if (result.status) {
                             window.location.href = '/game?token='+result.message+'&matchid='+result.matchid;
@@ -279,7 +285,8 @@
                         }
                     },
                     errpr: function(jqXHR, exception) {
-                        alert(jqXHR);
+                        $('#update-submit').removeClass('disabled');
+                        //alert(jqXHR);
                     }
                 });
             });
