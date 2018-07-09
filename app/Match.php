@@ -20,4 +20,9 @@ class Match extends Model
 	{
 		return Match::leftjoin('puzzles','matches.puzzle_id','=','puzzles.id')->select('puzzles.url as url')->where('matches.id',$mid)->first()->url;
 	}
+
+	public function getLivesByToken($token)
+	{
+		return Match::leftjoin('players','matches.player_id','=','players.id')->where('players.unique_token',$token)->first()->lives;
+	}
 }

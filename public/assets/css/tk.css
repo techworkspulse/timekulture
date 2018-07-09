@@ -239,6 +239,7 @@ header {
     padding: 0;
     background-color: #000 !important;
     border-bottom: 10px solid #ffcb00;
+    display:block;
   } 
 
   .bg-street .container {
@@ -334,6 +335,7 @@ header {
     padding: 0;
     background-color: #000 !important;
     border-bottom: 10px solid #ffcb00;
+    display:block
   }
 
   .bg-street .container { 
@@ -1641,7 +1643,7 @@ select option {
     bottom: 0;
     right: 0;
     background: #000;
-    height:50em;
+    height:65em;
     opacity: 0.8;
     z-index: 99999;
     filter: alpha(opacity=80);

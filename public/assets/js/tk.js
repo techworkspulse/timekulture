@@ -57,9 +57,14 @@
 
     $("#playagain-btn").click(function() { 
 
-      console.log('register-btn button clicked')
+      console.log('register-btn button clicked');
 
-       emailRetry();
+  
+                    emailRetry();
+
+      
+
+       
 
     }); 
 

@@ -2,7 +2,6 @@ $(document).ready(function() {
 
 	reset();
 
-
 	var completionStatus = 0;
 	var points = 1000;
 
@@ -32,12 +31,26 @@ $(document).ready(function() {
 			data: "",
 		})
 		.done(function(data) {
-			number = data;
+			if(data == 0)
+			{
+				$('#btn-retry').addClass('disabled');
+				$('#limit-error').html('**Uh Oh! You have reached your limit to play the game');
+				return false;
+			}
+			else
+			{
+				number = data;
+			}
+			
+
 		})
 		.fail(function(xhr) {
 			//console.log('error', xhr);
 			//window.location.href = "/";
+			$('#limit-error').html('**Uh Oh! You have reached your limit to play the game');
 			$('#btn-retry').addClass('disabled');
+			return false;
+			
 			
 		});
 
@@ -248,28 +261,55 @@ $(document).ready(function() {
     $('#btn-retry').click(function() {
     	var retryPuzzleId = getPuzzleId();
 
-    	$('#uniqueToken').val()
-
-		$.ajax({
-			type: "POST",
-			headers: {'X-CSRF-TOKEN': $('meta[name="csrf_token"]').attr('content')},
-			url: "/retryMatch",
-			data: {
-				'uniqueToken': $('#uniqueToken').val(),
-				'puzzleId': retryPuzzleId,
-			},
-			success: function(status) {
-				var result = JSON.parse(status);
+    	$.ajax({
+      type: "GET",
+      url: "/getLivesByToken/"+$('#uniqueToken').val(),
+      data: "",
+      success: function(status) {
+        var result = JSON.parse(status);
                 if (result.status) {
-					//window.location.reload(true);
-					window.location.href = '/game?token='+$('#uniqueToken').val()+"&matchid="+result.message;
-					//location.href.replace("matchid="+$('#matchId').val()+"#", "matchid="+result.message);
+                  if(result.message == 0)
+                  {
+                  	alert();
+                  	$('#btn-retry').addClass('disabled');
+                    $('#limit-error').html('**Uh Oh! You have reached your limit to play the game');
+                  }
+                  else
+                  {
+		    		$.ajax({
+						type: "POST",
+						headers: {'X-CSRF-TOKEN': $('meta[name="csrf_token"]').attr('content')},
+						url: "/retryMatch",
+						data: {
+							'uniqueToken': $('#uniqueToken').val(),
+							'puzzleId': retryPuzzleId,
+						},
+						success: function(status) {
+							var result = JSON.parse(status);
+			                if (result.status) {
+								//window.location.reload(true);
+								window.location.href = '/game?token='+$('#uniqueToken').val()+"&matchid="+result.message;
+								//location.href.replace("matchid="+$('#matchId').val()+"#", "matchid="+result.message);
+			                }
+			                else
+			                {
+			                	$('#limit-error').html('**Uh Oh! You have reached your limit to play the game');
+			                }
+						},
+						errpr: function(jqXHR, exception) {
+							$('#limit-error').html('**Uh Oh! You have reached your limit to play the game');
+						}
+					});
+    				}
                 }
-			},
-			errpr: function(jqXHR, exception) {
+      },
+      errpr: function(jqXHR, exception) {
 
-			}
-		});
+      }
+    });
+
+    	
+		
 	});
 
      function readURL(input) {

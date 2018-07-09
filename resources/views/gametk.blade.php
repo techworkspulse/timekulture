@@ -42,6 +42,7 @@
 								<h1 id="player-final-score" class="text-yellow f-montserrate my-score"></h1>
 								<p id="player-final-time" class="f-montserrate mlh"></p>
 								<a id="btn-retry" href="javascript:void(0);" type="button" class="btn-retry">RETRY</a>
+								<p id="limit-error" class="help-block text-danger"></p>
 							</div>
 						</div>
 						<div class="col-md-6 col-sm-6 col-6 text-center">

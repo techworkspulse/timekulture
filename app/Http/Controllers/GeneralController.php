@@ -253,7 +253,7 @@ class GeneralController extends Controller
     	}
     	else
     	{
-    		return false;
+    		return 0;
     	}
 
     	return $random;
@@ -529,5 +529,14 @@ class GeneralController extends Controller
     	}
 
     	return redirect(''); 
+    }
+
+    public function getLivesByToken($token)
+    {
+    	$lives = (new Match)->getLivesByToken($token);
+
+    	$result = array('status' => true,'message' => $lives);
+
+    	return json_encode($result);
     }
 }
