@@ -227,11 +227,11 @@ class GeneralController extends Controller
 
     	$notificationData = array(
 			'fromEmail' => 'postmaster@mailgun.swisswatchgallery.com.my',
-			'fromName' => 'Timekulture',
+			'fromName' => 'Time Kulture Revolution 2018',
 			'toEmail' => (new Player)->getEmailByToken($data['uniqueToken']),
 			'toName' => getFullNameByToken($data['uniqueToken']),
 			'introname' => getFullNameByToken($data['uniqueToken']),
-			'intromessage' => 'Time Kulture Revolution 2018',
+			'intromessage' => 'Thank You For Signing Up To Play - Time Kulture Revolution 2018',
 			'content' => '',
 		);
 		$email = (new GeneralModel)->sentEmailNotification($notificationData,'emails.thankyou');
@@ -379,6 +379,32 @@ class GeneralController extends Controller
   		{
   			$result = array('status' => false,'message' => ''); 
   		}
+
+    	return json_encode($result);
+    }
+
+    public function sendInvitationEmail(Request $request)
+    {
+    	$data = $request->all();
+
+    	if($data)
+    	{
+    		$firstName = explode(' ', getFullNameByToken($data['uniqueToken']));
+
+    		$notificationData = array(
+				'fromEmail' => 'postmaster@mailgun.swisswatchgallery.com.my',
+				'fromName' => 'Time Kulture Revolution 2018',
+				'toEmail' => $data['email'],
+				'toName' => $data['email'],
+				'introname' => $firstName[0],
+				'intromessage' => getFullNameByToken($data['uniqueToken']) . ' has invited you to play Race Against Time - Time Kulture Revolution 2018',
+				'content' => '',
+			);
+
+			$email = (new GeneralModel)->sentEmailNotification($notificationData,'emails.invitation');
+
+			$result = array('status' => true,'message' => '');
+    	}
 
     	return json_encode($result);
     }

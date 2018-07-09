@@ -234,15 +234,15 @@
 
                                 <p>Invite your friend to gain extra points!</p>
 
-                                <form>
-
+                                <form id="invitation-form">
+                                    {{ csrf_field() }}
                                     <div class="row">
 
                                         <div class="col-md-12">
 
                                             <div class="form-group">
 
-                                                <input type="email" class="form-control" placeholder="Enter email address" id="email" required data-validation-required-message="Please enter your email address.">
+                                                <input type="email" class="form-control" placeholder="Enter email address" id="email" name="email" required data-validation-required-message="Please enter your email address.">
 
                                                 <p class="help-block text-danger"></p>
 
