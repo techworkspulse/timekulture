@@ -40,4 +40,9 @@
     {
         return (new App\Match)->getPuzzleNameByMatchId($mid);
     }
+
+    function getPuzzleURLByMatchId($mid)
+    {
+        return (new App\Match)->getPuzzleURLByMatchId($mid);
+    }
 ?>

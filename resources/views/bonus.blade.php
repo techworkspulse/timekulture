@@ -806,7 +806,7 @@
 
                                     <div class="col-12"> 
 
-                                        <img src="{{ url('assets/img/tk-game/TUDOR.jpg') }}" class="img-responsive center-block width-100">
+                                        <img src="<?=getPuzzleURLByMatchId($matchid) ?>" class="img-responsive center-block width-100">
 
                                     </div> 
 
