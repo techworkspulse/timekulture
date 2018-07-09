@@ -721,7 +721,7 @@
 
                                     <div class="col-6 col-sm-12 col-md-12"> 
                                         @php($matchid = app('request')->input('matchid'))
-                                        <a id="facebookshare-btn" href="https://www.facebook.com/sharer/sharer.php?img={{getPuzzleNameByMatchId($matchid)}}&u=http%3A//www.swisswatchgallery.com.my/timekulturerevolution/" target="_blank"><img src="{{ url('assets/img/tk/003-facebook-logo-button.svg') }}" class="img-responsive center-block social-share"></a>
+                                        <a id="facebookshare-btn" href="https://www.facebook.com/sharer/sharer.php?u=http%3A//www.swisswatchgallery.com.my/raceagainsttime%3Fimg={{getPuzzleNameByMatchId($matchid)}}" target="_blank"><img src="{{ url('assets/img/tk/003-facebook-logo-button.svg') }}" class="img-responsive center-block social-share"></a>
 
                                     </div>
 
