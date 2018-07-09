@@ -51,7 +51,7 @@
 
                 <tr>
                   <td width="260" valign="top" align="center">
-                    <span style="color: #1a1a1a; font-weight: 400; font-size: 1em; line-height: 1.5;"><?php echo $data['introname']; ?> invited you to play Race Against Time by Time Kulture 2018. Click the link below to try your luck and [inviter name] will get extra points to their score. </span> <br><br><br><br>
+                    <span style="color: #1a1a1a; font-weight: 400; font-size: 1em; line-height: 1.5;"><?php echo $data['introname']; ?> invited you to play Race Against Time by Time Kulture 2018. Click the link below to try your luck and <?php echo $data['introname']; ?> will get extra points to their score. </span> <br><br><br><br>
                   </td>
                 </tr>    
 
