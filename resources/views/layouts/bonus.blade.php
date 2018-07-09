@@ -114,7 +114,6 @@
       $('#congratspoints-invitefriend-content').fadeIn('slow');   
 
       $('#invitefriend-panel').addClass('disabled-panel').attr('onclick', 'return false;').removeAttr('data-toggle', 'modal');
-
     }
 
 
@@ -155,6 +154,21 @@
 
 
     $("#submit-invitefriend").click(function() {  
+        $.ajax({
+        type: "POST",
+          headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+          url: "sendInvitationEmail",
+          data: {
+            'uniqueToken': $('#uniqueToken').val(),
+            'email': $('#email').val(),
+          },
+          success: function(status) {
+            
+          },
+          error: function(jqXHR, exception) {
+
+          }
+      });
 
         $.ajax({
         type: "POST",
