@@ -351,7 +351,7 @@ $(document).ready(function() {
 				'moves': moves,
 				'minutes': mm,
 				'seconds': ss,
-				'puzzleId': random,
+				'puzzleId': random+1,
 				'points': points,
 			},
 			success: function(status) {

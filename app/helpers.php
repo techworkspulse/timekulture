@@ -35,4 +35,9 @@
     {
         return (new App\Video)->getVideoURL();
     }
+
+    function getPuzzleNameByMatchId($mid)
+    {
+        return (new App\Match)->getPuzzleNameByMatchId($mid);
+    }
 ?>

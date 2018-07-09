@@ -15,6 +15,7 @@ class CreatePuzzlesTable extends Migration
     {
         Schema::create('puzzles', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('name');
             $table->text('url');
             $table->timestamps();
         });

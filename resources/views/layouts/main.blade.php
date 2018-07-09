@@ -6,7 +6,7 @@
     <meta content="width=device-width,initial-scale=1,maximum-scale=1,maximum-scale=1, user-scalable=0" name="viewport">
     <meta name="description" content=""> 
     <meta name="keywords" content="">  
-    <meta name="author" content="Digital Symphony, Bath & Body Works">  
+    <meta name="author" content="Digital Symphony, Time Kulture 2018">  
     <meta property="og:title" content="@yield('title') | {{ config('app.name', 'Time Kulture 2018') }}" />
     <meta property="og:image" content="" /> 
     <meta property="og:image:width" content="500" /> 

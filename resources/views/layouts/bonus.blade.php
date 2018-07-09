@@ -15,9 +15,9 @@
 
     <meta name="keywords" content="Digital Symphony, Swiss Watch Gallery, Time Kulture Revolution, Time Kulture">  
 
-    <meta name="author" content="Digital Symphony, Swiss Watch Gallery">  
+    <meta name="author" content="Digital Symphony, Time Kulture 2018">  
 
-    <meta property="og:title" content="Bonus Checkpoints | Time Kulture 2018" />
+    <meta property="og:title" content="@yield('title') | {{ config('app.name', 'Time Kulture 2018') }}" />
 
     <meta property="og:image" content="{{ url('assets/img/tk/tk-share.jpg') }}" /> 
 
