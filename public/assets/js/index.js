@@ -1,7 +1,7 @@
 $(document).ready(function() {
 
 	reset();
-	$('#maxedout').modal('show');
+
 
 	var completionStatus = 0;
 	var points = 1000;
