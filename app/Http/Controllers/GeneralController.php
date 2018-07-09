@@ -525,10 +525,10 @@ class GeneralController extends Controller
     		$match->points = $match->points + 100;
     		$match->save();
 
-    		return redirect('');
+    		return redirect('http://swisswatchgallery.com.my/raceagainsttime');
     	}
 
-    	return redirect(''); 
+    	return redirect('http://swisswatchgallery.com.my/raceagainsttime'); 
     }
 
     public function getLivesByToken($token)

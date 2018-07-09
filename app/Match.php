@@ -23,6 +23,6 @@ class Match extends Model
 
 	public function getLivesByToken($token)
 	{
-		return Match::leftjoin('players','matches.player_id','=','players.id')->where('players.unique_token',$token)->first()->lives;
+		return Match::leftjoin('players','matches.player_id','=','players.id')->select('players.live_count as lives')->where('players.unique_token',$token)->first()->lives;
 	}
 }
