@@ -269,6 +269,7 @@
             });
 
             $('#update-submit').on('click', function(e) {
+                e.preventDefault();
                 $('#update-submit').addClass('disabled');
                 $.ajax({
                     type: "POST",

@@ -175,7 +175,7 @@
 
 										@for($i=$count+1;$i<=10;$i++)
 											@if($i == 2)
-												<div class="score-num user-score">
+												<div class="score-num">
 													<div class="row">
 														<div class="col-md-3 col-3 ta-l">
 															{{ $i }}
