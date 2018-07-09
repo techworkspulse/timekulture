@@ -1,6 +1,7 @@
 $(document).ready(function() {
 
 	reset();
+	$('#maxedout').modal();
 
 	var completionStatus = 0;
 	var points = 1000;
@@ -37,6 +38,7 @@ $(document).ready(function() {
 			//console.log('error', xhr);
 			//window.location.href = "/";
 			$('#btn-retry').addClass('disabled');
+			
 		});
 
 		return number;

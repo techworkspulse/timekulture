@@ -445,7 +445,7 @@
 
                             <div class="modal-body">  
 
-                                <p>Congrats! You have earned 100 points!</p>
+                                <p>Congrats! You have earned 50 points!</p>
 
 
 
@@ -585,7 +585,7 @@
 
                             <div class="modal-body">  
 
-                                <p>Congrats! You have earned 100 points!</p>
+                                <p>Congrats! You have earned 50 points!</p>
 
 
 

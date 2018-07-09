@@ -5,6 +5,10 @@
 @section('content')
 <body id="page-top" class="index">
 
+    <div id="overlay" class="hide">
+    <img id="loading" src="{{ url('assets/img/tk/loading.gif') }}">
+</div>
+
     <!-- Header -->
     <header>
         <div class="container">
@@ -226,14 +230,15 @@
     <script type="text/javascript">
         $(document).ready(function() {
             $('#register-submit').on('click', function(e) {
-                $('#register-submit').addClass('disabled');
+                $('#overlay').css('display','block');
+      
 
                 $.ajax({
                     type: "POST",
                     url: "/createPlayer",
                     data: $("#registration-form").serialize(),
                     success: function(status) {
-                        $('#register-submit').removeClass('disabled');
+                        $('#overlay').css('display','none');
                         var result = JSON.parse(status);
                         if (result.status) {
                             window.location.href = '/game?token='+result.message+'&matchid='+result.matchid;
@@ -262,7 +267,7 @@
                         }
                     },
                     errpr: function(jqXHR, exception) {
-                        $('#register-submit').removeClass('disabled');
+                        $('#overlay').css('display','none');
                         //alert(jqXHR);
                     }
                 });
@@ -270,13 +275,13 @@
 
             $('#update-submit').on('click', function(e) {
                 e.preventDefault();
-                $('#update-submit').addClass('disabled');
+                $('#overlay').css('display','block');
                 $.ajax({
                     type: "POST",
                     url: "/updatePlayer",
                     data: $("#update-form").serialize(),
                     success: function(status) {
-                        $('#update-submit').removeClass('disabled');
+                        $('#overlay').css('display','none');
                         var result = JSON.parse(status);
                         if (result.status) {
                             window.location.href = '/game?token='+result.message+'&matchid='+result.matchid;
@@ -286,7 +291,7 @@
                         }
                     },
                     errpr: function(jqXHR, exception) {
-                        $('#update-submit').removeClass('disabled');
+                        $('#overlay').css('display','none');
                         //alert(jqXHR);
                     }
                 });

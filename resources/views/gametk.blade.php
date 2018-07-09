@@ -5,6 +5,10 @@
 @section('content')
 
 <body>
+
+	<div id="overlay" class="hide">
+    <img id="loading" src="{{ url('assets/img/tk/loading.gif') }}">
+</div>
 	<input type="hidden" id="uniqueToken" name="uniqueToken" value="{{ app('request')->input('token') }}">
 	<input type="hidden" id="matchId" name="matchId" value="{{ app('request')->input('matchid') }}">
 
@@ -127,6 +131,21 @@
 			</div>
 
 		</div>
+		<div class="timekulture-modal modal fade" id="maxedout" tabindex="-1" role="dialog" aria-hidden="true">
+	        <div class="modal-dialog">
+	            <div class="modal-content"> 
+	                <div class="container">
+	                    <div class="row">
+	                        <div class="col-xs-12 col-lg-12">
+	                            <div class="modal-body">  
+	                                <p class="help-block text-danger">**Uh Oh! You have reached your limit to play the game</p>
+	                            </div>
+	                        </div>
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
 	</div>
 	<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
 	<script src="{{ url('assets/js/index.js') }}"></script>

@@ -437,6 +437,8 @@ class GeneralController extends Controller
 
 			$email = (new GeneralModel)->sentEmailNotification($notificationData,'emails.invitation');
 
+			$player = Player::where('unique_token',$data['uniqueToken'])->first();
+
 			$reward = Reward::where('player_id',$player->id)->where('match_id',$data['matchId'])->first();
 
 	    	if($reward)

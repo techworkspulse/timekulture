@@ -71,6 +71,10 @@
 
 <body id="page-top" class="index">
 
+  <div id="overlay" class="hide">
+    <img id="loading" src="{{ url('assets/img/tk/loading.gif') }}">
+</div>
+
 @yield('content')
 
 <script src="{{ url('assets/vendor/jquery/jquery.min.js') }}"></script>
@@ -154,6 +158,7 @@
 
 
     $("#submit-invitefriend").click(function() {  
+      $('#overlay').css('display','block');
         $.ajax({
         type: "POST",
           headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
@@ -165,10 +170,11 @@
             'invitation': 1,
           },
           success: function(status) {
+            $('#overlay').css('display','none');
             invitefriendcongrats();
           },
           error: function(jqXHR, exception) {
-
+            $('#overlay').css('display','none');
           }
       });
     }); 
