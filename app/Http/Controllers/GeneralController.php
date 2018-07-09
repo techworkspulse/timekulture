@@ -128,7 +128,7 @@ class GeneralController extends Controller
         $validator = $this->updatePlayerValidator($data);
         if ($validator->fails()) 
         {
-            $result = array('status' => false, 'message' => $validator->errors());
+            $result = array('status' => false, 'message' => $validator->errors()->first());
         }
         else
         {

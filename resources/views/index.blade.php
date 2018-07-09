@@ -279,14 +279,7 @@
                             window.location.href = '/gameTK';
                         } else {
                             $('.help-block').html('');
-
-                            var error = JSON.stringify(result.message);
-                            var obj = JSON.parse(error);
-
-                            if (obj['email'] != '')
-                            {
-                                $('#update-email-error').html(obj['email']);
-                            }
+                            $('#update-email-error').html(result.message);
                         }
                     },
                     errpr: function(jqXHR, exception) {

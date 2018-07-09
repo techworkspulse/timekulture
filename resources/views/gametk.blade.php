@@ -48,7 +48,7 @@
 								@php($increment = 1)
 								@foreach($scoreboard as $item)
 									@if($increment == 2)
-										<div class="score-num user-score">
+										<div class="score-num">
 											<div class="row">
 												<div class="col-md-3 col-3 ta-l">
 													{{ $increment }}
