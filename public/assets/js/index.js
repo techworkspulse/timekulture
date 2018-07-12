@@ -452,13 +452,14 @@ $(document).ready(function() {
 	};
 
 	function getScoreboardNames(){
+		$('#overlay').css('display','block');
 		$.ajax({
 			type: "POST",
 			headers: {'X-CSRF-TOKEN': $('meta[name="csrf_token"]').attr('content')},
 			url: "/getScoreboardNames",
 			data: "",
 			success: function(data) {
-				console.log(data);
+				$('#overlay').css('display','none');
 	        	$('.scoreboard').html();
 	        	var result = '';
 	        	for(i=0;i<data.length;i++)
@@ -492,7 +493,7 @@ $(document).ready(function() {
 	        	$(".scoreboard").html(result);
 			},
 			errpr: function(jqXHR, exception) {
-
+				$('#overlay').css('display','none');
 			}
 
 		});
