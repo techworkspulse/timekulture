@@ -13,7 +13,7 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        //
+        'App\Console\Commands\GenerateDailyWinners',
     ];
 
     /**
@@ -24,7 +24,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-         //$schedule->command('timekulture:generateDailyWinners')->->dailyAt('00:30');
+        $schedule->command('timekulture:generateDailyWinners')->dailyAt('00:30');
     }
 
     /**

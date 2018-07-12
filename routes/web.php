@@ -32,3 +32,4 @@ Route::post('/getExtraPoints', 'GeneralController@getExtraPoints')->name('getExt
 Route::post('/sendInvitationEmail', 'GeneralController@sendInvitationEmail')->name('sendInvitationEmail');
 Route::get('/earnPoints/{token}/{matchId}', 'GeneralController@earnPoints')->name('earnPoints');
 Route::get('/getLivesByToken/{token}', 'GeneralController@getLivesByToken')->name('getLivesByToken');
+Route::post('/getScoreboardNames', 'GeneralController@getScoreboardNames')->name('getScoreboardNames');
