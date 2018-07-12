@@ -219,8 +219,11 @@ class GeneralController extends Controller
     	$match->completion_status = 1;
     	$match->save();
 
-    	$player->live_count = --$player->live_count;
-    	$player->save();
+        if($player->live_count > 0)
+        {
+            $player->live_count = --$player->live_count;
+            $player->save();
+        }
 
     	$notificationData = array(
 			'fromEmail' => 'postmaster@mailgun.swisswatchgallery.com.my',
@@ -312,30 +315,42 @@ class GeneralController extends Controller
 	    	$reward->match_id = $data['matchId'];
 	    	if(isset($data['video']))
 	    	{
-				$reward->video = $data['video'];
-				$match->points = $match->points + 50;
-    			$match->save();
+                if($reward->video != 0)
+                {
+                    $reward->video = $data['video'];
+                    $match->points = $match->points + 50;
+                    $match->save();
+                }
 	    	}
 
 	    	if(isset($data['share']))
 	    	{
-				$reward->share = $data['share'];
-				$match->points = $match->points + 100;
-    			$match->save();
+                if($reward->share != 0)
+                {
+                    $reward->share = $data['share'];
+                    $match->points = $match->points + 100;
+                    $match->save();
+                }
 	    	}
 
 	    	if(isset($data['invitation']))
 	    	{
-				$reward->invitation = $data['invitation'];
-				$match->points = $match->points + 100;
-    			$match->save();
+                if($reward->invitation != 0)
+                {
+                    $reward->invitation = $data['invitation'];
+                    $match->points = $match->points + 100;
+                    $match->save();
+                }
 	    	}
 
 	    	if(isset($data['instagramFollow']))
 	    	{
-				$reward->instagram_follow = $data['instagramFollow'];
-				$match->points = $match->points + 50;
-    			$match->save();
+                if($reward->instagram_follow != 0)
+                {
+                    $reward->instagram_follow = $data['instagramFollow'];
+                    $match->points = $match->points + 50;
+                    $match->save();
+                }
 	    	}
 	   		$reward->save();
     	}
@@ -346,9 +361,12 @@ class GeneralController extends Controller
 	    	$reward->match_id = $data['matchId'];
 	    	if(isset($data['video']))
 	    	{
-				$reward->video = $data['video'];
-				$match->points = $match->points + 50;
-    			$match->save();
+                if($reward->video != 0)
+                {
+                    $reward->video = $data['video'];
+                    $match->points = $match->points + 50;
+                    $match->save();
+                }
 	    	}
 	    	else
 	    	{
@@ -357,9 +375,12 @@ class GeneralController extends Controller
 
 	    	if(isset($data['share']))
 	    	{
-				$reward->share = $data['share'];
-				$match->points = $match->points + 100;
-    			$match->save();
+                if($reward->share != 0)
+                {
+                    $reward->share = $data['share'];
+                    $match->points = $match->points + 100;
+                    $match->save();
+                }
 	    	}
 	    	else
 	    	{
@@ -368,9 +389,12 @@ class GeneralController extends Controller
 
 	    	if(isset($data['invitation']))
 	    	{
-				$reward->invitation = $data['invitation'];
-				$match->points = $match->points + 100;
-    			$match->save();
+                if($reward->invitation != 0)
+                {
+                    $reward->invitation = $data['invitation'];
+                    $match->points = $match->points + 100;
+                    $match->save();
+                }
 	    	}
 	    	else
 	    	{
@@ -379,9 +403,12 @@ class GeneralController extends Controller
 
 	    	if(isset($data['instagramFollow']))
 	    	{
-				$reward->instagram_follow = $data['instagramFollow'];
-				$match->points = $match->points + 50;
-    			$match->save();
+                if($reward->instagram_follow)
+                {
+                    $reward->instagram_follow = $data['instagramFollow'];
+                    $match->points = $match->points + 50;
+                    $match->save();
+                }
 	    	}
 	    	else
 	    	{
