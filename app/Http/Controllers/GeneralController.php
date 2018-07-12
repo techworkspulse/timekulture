@@ -557,7 +557,7 @@ class GeneralController extends Controller
 
     public function earnPoints($uniqueToken, $matchId)
     {
-    	$player = Match::leftjoin('players','matches.player_id','=','players.id')->select('matches.id as id')->where('unique_token',$uniqueToken)->where('points','<=','1300')->where('matches.id',$matchId)->first();
+    	$player = Match::leftjoin('players','matches.player_id','=','players.id')->select('matches.id as id')->where('unique_token',$uniqueToken)->where('matches.points','<=','1300')->where('matches.id',$matchId)->first();
 
     	if ($player)
     	{
@@ -589,7 +589,7 @@ class GeneralController extends Controller
             $winnerList[] = $item->player_id;
         }
 
-        $scoreboard = Match::leftjoin('players','matches.player_id','=','players.id')->selectRaw('MAX(points) AS point, player_id, players.name as name')->whereNotIn('player_id',$winnerList)->where('point','<=','1300')->where('matches.created_at', '>=', date('Y-m-d').' 00:00:00')->where('matches.completion_status',1)->groupBy('player_id')->orderBy('point','desc')->take(10)->get();
+        $scoreboard = Match::leftjoin('players','matches.player_id','=','players.id')->selectRaw('MAX(points) AS point, player_id, players.name as name')->whereNotIn('player_id',$winnerList)->where('matches.points','<=','1300')->where('matches.created_at', '>=', date('Y-m-d').' 00:00:00')->where('matches.completion_status',1)->groupBy('player_id')->orderBy('point','desc')->take(10)->get();
         
         return $scoreboard;
     }
