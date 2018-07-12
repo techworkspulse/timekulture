@@ -54,7 +54,7 @@ class GenerateDailyWinners extends Command
 
         $match = Match::selectRaw('id, MAX(points) AS point, player_id')
             ->whereNotIn('player_id',$winnerList)
-            ->where('point','<=','1300')
+            ->where('matches.points','<=','1300')
 			->where('completion_status',1)
             ->whereBetween('created_at', [date('Y-m-d 00:00:00', strtotime(date('Y-m-d 00:00:00'). ' -1 day')),date('Y-m-d 00:00:00')])
             ->groupBy('player_id')->orderBy('point','desc')->take(10)->get();    
