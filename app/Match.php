@@ -8,7 +8,14 @@ class Match extends Model
 {
 	public function getScoreboardNames()
 	{
-		return Match::selectRaw('MAX(points) AS point, player_id')->where('created_at', '>=', date('Y-m-d').' 00:00:00')->groupBy('player_id')->orderBy('point','desc')->take(10)->get();
+		$winnerList = array();
+        $dailyWinner = DailyWinner::all();
+        foreach ($dailyWinner as $item)
+        {
+            $winnerList[] = $item->player_id;
+        }
+		
+		return Match::selectRaw('MAX(points) AS point, player_id')->whereNotIn('player_id',$winnerList)->where('created_at', '>=', date('Y-m-d').' 00:00:00')->where('completion_status',1)->groupBy('player_id')->orderBy('point','desc')->take(10)->get();
 	}
 
 	public function getPuzzleNameByMatchId($mid)

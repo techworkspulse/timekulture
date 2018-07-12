@@ -65,7 +65,7 @@ class GeneralController extends Controller
 
         	if ($player)
         	{
-        		if ($player->live_count == 0)
+        		if ($player->live_count < 1)
         		{
         			$result = array('status' => false,'message' => 'No more lives available'); 
         		}
@@ -133,7 +133,7 @@ class GeneralController extends Controller
 
         	if ($player)
         	{
-        		if ($player->live_count == 0)
+        		if ($player->live_count < 1)
 	    		{
 	    			$result = array('status' => false,'message' => '**Uh Oh! You have reached your limit to play the game'); 
 	    		}
@@ -224,11 +224,11 @@ class GeneralController extends Controller
 
     	$notificationData = array(
 			'fromEmail' => 'postmaster@mailgun.swisswatchgallery.com.my',
-			'fromName' => 'Time Kulture Revolution 2018',
+			'fromName' => 'Revolution by Time Kulture 2018',
 			'toEmail' => (new Player)->getEmailByToken($data['uniqueToken']),
 			'toName' => getFullNameByToken($data['uniqueToken']),
 			'introname' => getFullNameByToken($data['uniqueToken']),
-			'intromessage' => 'Thank You For Signing Up To Play - Time Kulture Revolution 2018',
+			'intromessage' => 'Thank You For Signing Up To Play - Revolution by Time Kulture 2018',
 			'content' => '',
 		);
 		$email = (new GeneralModel)->sentEmailNotification($notificationData,'emails.thankyou');
@@ -242,7 +242,7 @@ class GeneralController extends Controller
     {
     	$player = Player::where('unique_token',$token)->first();
 
-    	if ($player->live_count != 0)
+    	if ($player->live_count > 0)
     	{
     		do
 	    	{
@@ -425,11 +425,11 @@ class GeneralController extends Controller
 
     		$notificationData = array(
 				'fromEmail' => 'postmaster@mailgun.swisswatchgallery.com.my',
-				'fromName' => 'Time Kulture Revolution 2018',
+				'fromName' => 'Revolution by Time Kulture 2018',
 				'toEmail' => $data['email'],
 				'toName' => $data['email'],
 				'introname' => $firstName[0],
-				'intromessage' => getFullNameByToken($data['uniqueToken']) . ' has invited you to play Race Against Time - Time Kulture Revolution 2018',
+				'intromessage' => getFullNameByToken($data['uniqueToken']) . ' has invited you to play “Race Against Time” puzzle game – Revolution by Time Kulture',
 				'content' => '',
 				'uniqueToken' => $data['uniqueToken'],
 				'matchId' => $data['matchId'],

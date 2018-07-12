@@ -1,6 +1,6 @@
 @extends('layouts.bonus')
 
-@section('title', 'Time Kulture 2018')
+@section('title', 'Scoreboard')
 
 @section('content')
     <input type="hidden" id="uniqueToken" name="uniqueToken" value="{{ app('request')->input('token') }}">
@@ -45,11 +45,11 @@
 
 			                <div class="row visible-xs visible-sm">
 
-								<div class="col-md-12 "> 
+								<div class="col-12 col-md-12 "> 
 
-									<h3> Get ahead with by earning extra points.<span><a class="text-yellow click-here" href="{{ url('/bonus') }}?token={{ app('request')->input('token') }}&matchid={{ app('request')->input('matchid') }}"> CLICK HERE</a></span> </h3> 
+									<h3> Get ahead by earning extra points.<span><a class="text-yellow click-here" href="{{ url('/bonus') }}?token={{ app('request')->input('token') }}&matchid={{ app('request')->input('matchid') }}"> CLICK HERE</a></span> </h3> 
 
-									<p>Check your email at 11:59pm to see if you are the daily champion</p> 
+									<p>Check your email at 12:30am to see if you are the daily champion</p> 
 
 								</div>
 
@@ -77,7 +77,7 @@
 														<div class="col-md-3 col-3 ta-l">
 															{{ $increment }}
 														</div>
-														<div class="col-md-9 col-9 ta-l">
+														<div class="col-md-9 col-9 ta-l overflow-text-scoreboard ">
 															@php($scoreboardName = explode(" ",getFullNameById($item['player_id'])->name))
 															{{ $scoreboardName[0] }}
 														</div>
@@ -89,7 +89,7 @@
 														<div class="col-md-3 col-3 ta-l">
 															{{ $increment }}
 														</div>
-														<div class="col-md-9 col-9 ta-l">
+														<div class="col-md-9 col-9 ta-l overflow-text-scoreboard ">
 															@php($scoreboardName = explode(" ",getFullNameById($item['player_id'])->name))
 															{{ $scoreboardName[0] }}
 														</div>
@@ -106,7 +106,7 @@
 														<div class="col-md-3 col-3 ta-l">
 															{{ $i }}
 														</div>
-														<div class="col-md-9 col-9 ta-l">
+														<div class="col-md-9 col-9 ta-l overflow-text-scoreboard">
 															-
 														</div>
 													</div>
@@ -117,7 +117,7 @@
 														<div class="col-md-3 col-3 ta-l">
 															{{ $i }}
 														</div>
-														<div class="col-md-9 col-9 ta-l">
+														<div class="col-md-9 col-9 ta-l overflow-text-scoreboard">
 															-
 														</div>
 													</div>
@@ -146,12 +146,12 @@
 										@php($increment = 1)
 										@foreach($scoreboard as $item)
 											@if($increment == 2)
-												<div class="score-num user-score">
+												<div class="score-num">
 													<div class="row">
 														<div class="col-md-3 col-3 ta-l">
 															{{ $increment }}
 														</div>
-														<div class="col-md-9 col-9 ta-l">
+														<div class="col-md-9 col-9 ta-l overflow-text-scoreboard">
 															@php($scoreboardName = explode(" ",getFullNameById($item['player_id'])->name))
 															{{ $scoreboardName[0] }}
 														</div>
@@ -163,7 +163,7 @@
 														<div class="col-md-3 col-3 ta-l">
 															{{ $increment }}
 														</div>
-														<div class="col-md-9 col-9 ta-l">
+														<div class="col-md-9 col-9 ta-l overflow-text-scoreboard">
 															@php($scoreboardName = explode(" ",getFullNameById($item['player_id'])->name))
 															{{ $scoreboardName[0] }}
 														</div>
@@ -180,7 +180,7 @@
 														<div class="col-md-3 col-3 ta-l">
 															{{ $i }}
 														</div>
-														<div class="col-md-9 col-9 ta-l">
+														<div class="col-md-9 col-9 ta-l overflow-text-scoreboard">
 															-
 														</div>
 													</div>
@@ -191,7 +191,7 @@
 														<div class="col-md-3 col-3 ta-l">
 															{{ $i }}
 														</div>
-														<div class="col-md-9 col-9 ta-l">
+														<div class="col-md-9 col-9 ta-l overflow-text-scoreboard">
 															-
 														</div>
 													</div>
@@ -209,11 +209,11 @@
 
                             <div class="row">
 
-								<div class="col-md-12 "> 
+								<div class="col-12 col-md-12 "> 
 
-									<h3 class=" hidden-xs hidden-sm"> Get ahead with by earning extra points.<span><a class="text-yellow click-here" href="{{ url('/bonus') }}?token={{ app('request')->input('token') }}&matchid={{ app('request')->input('matchid') }}"> CLICK HERE</a></span> </h3> 
+									<h3 class=" hidden-xs hidden-sm"> Get ahead by earning extra points.<span><a class="text-yellow click-here" href="{{ url('/bonus') }}?token={{ app('request')->input('token') }}&matchid={{ app('request')->input('matchid') }}"> CLICK HERE</a></span> </h3> 
 
-									<p class="text-yellow  hidden-xs hidden-sm">Check your email at 11:59pm to see if you are the daily champion</p>
+									<p class="text-yellow  hidden-xs hidden-sm">Check your email at 12:30am to see if you are the daily champion</p>
 
 									<a href="/Time_Kulture_2018_TC_Puzzle_Game.pdf" target="_blank" class="tnc">Terms & Conditions</a> 
 
@@ -255,7 +255,7 @@
 				mm = '0' + mm
 			}
 
-			today = mm + '/' + dd + '/' + yyyy;
+			today = dd + '/' +  mm + '/' + yyyy;
 
 			$('.date').append(today);
 		});

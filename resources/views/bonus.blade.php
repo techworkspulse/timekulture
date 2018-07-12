@@ -561,7 +561,7 @@
 
                                             <div id="success"></div>
 
-                                             <a type="button" href="https://www.instagram.com/swisswatchgallery/" target="_blank" class="btn btn-xl btn-register" id="submit-instagram">Follow Us</a>
+                                             <a onclick='window.open("https://www.instagram.com/swisswatchgallery/");return false;' class="btn btn-xl btn-register" id="submit-instagram">Follow Us</a>
 
                                         </div> 
 

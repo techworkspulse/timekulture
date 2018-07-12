@@ -13,22 +13,11 @@
 
   $body = $("body");
 
-
-
-  
-
-
-
     $(window).bind("load", function() {
 
         $('#playagain-section').hide();
 
     });
-
- 
-
- 
-
 
 
     function emailRetry() {
@@ -39,33 +28,18 @@
 
       $('#playagain-section').fadeIn('slow'); 
 
-
-
       //  $('html, body').animate({
 
       //     scrollTop: $("#playagain-section").offset().top
 
       // }, 2000);
-
- 
-
     }
 
-
-
-     
-
     $("#playagain-btn").click(function() { 
-
-      console.log('register-btn button clicked');
-
-  
-                    emailRetry();
-
-      
-
-       
-
+      $('html, body').animate({
+                    scrollTop: $("iframe")
+                }, 2000);
+                    emailRetry();     
     }); 
 
 

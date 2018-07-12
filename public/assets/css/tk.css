@@ -205,6 +205,7 @@ header {
   color: white;
   min-height: 40em;
   height: 0;
+  position: relative;
 }
 
   .bg-flag {
@@ -947,7 +948,7 @@ section h4.section-heading.line-behind-text span:after {
   width: 1000px;
   position: absolute;
   top: 0.5em;
-  border-top: 1px solid #707070;
+  border-top: 1px solid #ffcb00;
 }
 section h4.section-heading.line-behind-text span:before {
   right: 100%;
@@ -991,7 +992,7 @@ section h4.section-heading.line-behind-text-yellow span:after {
     border: 1px solid #fff !important;
     border-radius: 8px !important;
     height: 50px !important;
-    width: 50% !important;
+    width: 65% !important;
     margin: 0px auto 20px auto !important;
     color: #fff !important;
     font-size: 15px !important;
@@ -1034,7 +1035,7 @@ select option {
     font-size: 18px !important;
     padding: 10px 30px !important;
     border-radius: 10px !important;
-    width: 50% !important;
+    width: 65% !important;
     letter-spacing: 1px !important;
 }
 
@@ -1059,6 +1060,7 @@ select option {
   padding: 15em;
   margin: -15em;
   width: 100%;
+  display: none;
 }
 
 .terms, .terms a { 
@@ -1132,7 +1134,7 @@ select option {
     padding: 30px 20px ;
     max-width: 18em;
     margin: 0 auto 20px auto;
-    min-height: 14em;
+    min-height: 14.5em;
 }
 
 
@@ -1241,6 +1243,11 @@ select option {
 #congratspoints-instagram-content .modal-body,
 #congratspoints-share-content .modal-body {
   padding: 150px 0;
+}
+
+#congratspoints-invitefriend-content p {
+    width: 65%;
+    margin: 0 auto 50px auto;
 }
 
 .embed-responsive-16by9 {
@@ -1662,4 +1669,54 @@ display: none;
   .visible-print-inline-block {
     display: inline-block !important;
   }
+}
+
+  .overflow-text {  
+    overflow: overlay;
+    text-overflow: ellipsis;
+    word-break: break-all; 
+    white-space: unset;
+  }
+
+
+  .overflow-text-scoreboard {
+    overflow: overlay;
+    text-overflow: ellipsis;
+    word-break: break-all; 
+    white-space: unset;
+}
+
+
+.click-here {
+    display: block;
+    margin: 10px auto;; 
+    color: #000 !important;
+    background-color: #ffcb00 !important;
+    border: 2px solid #ffcb00 !important;
+    font-family: Orbitron-Black !important;
+    text-transform: uppercase !important;
+    font-weight: 700 !important;
+    font-size: 14px !important;
+    padding: 10px 50px !important;
+    border-radius: 10px !important;
+    width: 50% !important;
+    letter-spacing: 1px !important; 
+  }
+
+.playnow {
+  position: absolute;
+  bottom: 0rem;
+  width: 100%;
+  font-family: Montserrat-Regular;
+  font-size: 15px;
+}
+
+.playnow img {
+    max-width: 1.25em;
+    width: auto;
+    margin-top: 0;
+}
+
+.clickheremobile {
+    display: block;
 }

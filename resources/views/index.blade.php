@@ -6,9 +6,8 @@
 <body id="page-top" class="index">
 
     <div id="overlay" class="hide">
-    <img id="loading" src="{{ url('assets/img/tk/loading.gif') }}">
-</div>
-
+        <img id="loading" src="{{ url('assets/img/tk/loading.gif') }}">
+    </div>
     <!-- Header -->
     <header>
         <div class="container">
@@ -16,13 +15,18 @@
                 <div class="row"><img src="{{ url('assets/img/tk/TK_Logo.png') }}" class="img-responsive tk-logo-banner" alt="Time Kulture 2018"></div>
                 <div class="intro-lead-in">12 - 22 JULY 2018</div>
                 <div class="intro-heading">LEVEL 2 CENTRE COURT <br> PAVILION KUALA LUMPUR</div>
-                <a href="#raceagainsttime" class="page-scroll btn btn-xl btn-tk">Discover More</a>
+                <a href="http://www.swisswatchgallery.com.my/timekulturerevolution/" target="_blank" class="page-scroll btn btn-xl btn-tk">About Time Kulture</a>
             </div>
+        </div>
+
+        <div class="playnow">
+          <div class="text-center">Scroll Down <br> to Play</div>
+          <img src="http://timekulture.swisswatchgallery.com.my/assets/img/tk/chevron-down-solid.svg" alt="down chevron">
         </div>
     </header>
 
 
-    <section id="raceagainsttime" class="bg-flag">  
+    <section id="raceagainsttime" class="bg-flag">
         <div class="container yellow-hr">
             <div class="row">
                 <div class="col-lg-12 text-center">
@@ -35,47 +39,47 @@
 
             <div class="prize-container">
                 <div class="row text-center">
-                    <div class="col-xs-12 col-sm-4 col-md-4"> 
+                    <div class="col-xs-12 col-sm-4 col-md-4">
                         <div class="prize-box">
                             <h4>1st Prize </h4>
-                            <h2>RM 2500</h2> 
-                            <p>Swiss Watch Gallery <br> Cash voucher</p> 
+                            <h2>RM 2500</h2>
+                            <p>Swiss Watch Gallery <br> Cash voucher</p>
                         </div>
                     </div>
-                    <div class="col-xs-12 col-sm-4 col-md-4"> 
+                    <div class="col-xs-12 col-sm-4 col-md-4">
                         <div class="prize-box">
                             <h4>2nd Prize </h4>
-                            <h2>RM 1500</h2> 
-                            <p>Swiss Watch Gallery <br> Cash voucher</p> 
+                            <h2>RM 1500</h2>
+                            <p>Swiss Watch Gallery <br> Cash voucher</p>
                         </div>
                     </div>
-                    <div class="col-xs-12 col-sm-4 col-md-4"> 
+                    <div class="col-xs-12 col-sm-4 col-md-4">
                         <div class="prize-box">
                             <h4>3rd Prize </h4>
-                            <h2>RM 1000</h2> 
-                            <p>Swiss Watch Gallery <br> Cash voucher</p> 
+                            <h2>RM 1000</h2>
+                            <p>Swiss Watch Gallery <br> Cash voucher</p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-    </section> 
+    </section>
 
     <section id="form-register" class="bg-street">
-        <div class="simple-linear"></div>   
+        <div class="simple-linear"></div>
         <div class="container">
 
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h4 class="section-heading line-behind-text"><span>REGISTER NOW</span></h4> 
+                    <h4 class="section-heading line-behind-text-yellow"><span>REGISTER NOW</span></h4>
                 </div>
-            </div> 
+            </div>
 
-            <div class="prize-container p-bot-0"> 
+            <div class="prize-container p-bot-0">
                 <div class="row">
                     <div class="col-lg-12">
-                        <form id="registration-form" method="POST" action="">
+                        <form id="registration-form">
                             {{ csrf_field() }}
                             <div class="row">
                                 <div class="col-md-12">
@@ -114,14 +118,14 @@
                                 <div class="clearfix"></div>
                                 <div class="col-lg-12 text-center">
                                     <div id="success"></div>
-                                    <a id="register-submit" href="javascript:void(0);" type="button" class="btn btn-xl btn-register">Register</a>
+                                    <a id="register-submit" class="btn btn-xl btn-register">Register</a>
                                 </div>
 
                             </div>
                         </form>
 
                         <div class="clearfix"></div>
-                        
+
                         <div class="col-md-12">
                             <p class="next-try">Not your first time? <a href="#" onclick="return false;" id="playagain-btn"> Click here for your next try</a></p>
                         </div>
@@ -133,78 +137,81 @@
                         </div>
                     </div>
                 </div>
-            </div> 
+            </div>
         </div>
     </section>
 
-    <section id="playagain-section" class="bg-street"> 
+    <section id="playagain-section" class="bg-street">
         <div class="container">
             <div class="col-lg-12 text-center">
-                <h4 class="section-heading line-behind-text-yellow"><span>ENTER YOUR EMAIL TO <br class="visible-xs visible-sm"> START YOUR ENGINE</span></h4> 
+                <h4 class="section-heading line-behind-text-yellow"><span>ENTER YOUR EMAIL TO <br class="visible-xs visible-sm"> START YOUR ENGINE</span></h4>
             </div>
 
-            <div class="prize-container p-bot-0"> 
+            <div class="prize-container p-bot-0">
                 <div class="row">
                     <div class="col-lg-12">
-                        <form id="update-form" method="POST" action="">
+                        <form id="update-form" onSubmit="return false;">
                             {{ csrf_field() }}
-                            <div class="row"> 
+                            <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <input type="email" class="form-control" placeholder="Email *" id="email" name="email"  required data-validation-required-message="Please enter your email address.">
+                                        <input type="email" class="form-control" placeholder="Email *" id="email2" name="email" required data-validation-required-message="Please enter your email address.">
                                         <p id="update-email-error" class="help-block text-danger"></p>
                                     </div>
-                                </div> 
+                                </div>
 
                                 <div class="clearfix"></div>
                                 <div class="col-lg-12 text-center">
                                     <div id="success"></div>
-
-                                    <a id="update-submit" href="javascript:void(0);" type="button" class="btn btn-xl btn-register">Go</a>
+                                    <a id="update-submit" class="btn btn-xl btn-register">Go</a>
+                                    <button id="retry-submit" onclick="window.location.reload()" class="btn btn-xl btn-register" style="display:none;">Register</button>
                                 </div>
 
                             </div>
-                        </form> 
-                    </div>
-                </div>
-            </div> 
-        </div>
-    </section>
-
-    <!-- Portfolio Modal 1 -->
-    <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="close-modal" data-dismiss="modal">
-                    <div class="lr">
-                        <div class="rl">
-                        </div>
-                    </div>
-                </div>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-8 col-lg-offset-2">
-                            <div class="modal-body">
-                                <!-- Project Details Go Here -->
-                                <h2>Project Name</h2>
-                                <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                                <img class="img-responsive img-centered" src="{{ url('assets/img/portfolio/roundicons-free.png') }}" alt="">
-                                <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
-                                <p>
-                                    <strong>Want these icons in this portfolio item sample?</strong>You can download 60 of them for free, courtesy of <a href="https://getdpd.com/cart/hoplink/18076?referrer=bvbo4kax5k8ogc">RoundIcons.com</a>, or you can purchase the 1500 icon set <a href="https://getdpd.com/cart/hoplink/18076?referrer=bvbo4kax5k8ogc">here</a>.</p>
-                                <ul class="list-inline">
-                                    <li>Date: July 2014</li>
-                                    <li>Client: Round Icons</li>
-                                    <li>Category: Graphic Design</li>
-                                </ul>
-                                <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close Project</button>
-                            </div>
-                        </div>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
+
+    <div class="timekulture-modal modal fade" id="browser" tabindex="-1" role="dialog" aria-hidden="true">
+
+        <div class="modal-dialog">
+
+            <div class="modal-content">
+
+                <div class="close-modal" data-dismiss="modal">
+
+                    <img src="{{ url('assets/img/tk/delete-button.svg') }}" class="img-responsive center-block">
+
+                </div>
+
+                <div class="container">
+
+                    <div id="invitefriend-content" class="row">
+
+                        <div class="col-lg-12">
+
+                            <div class="modal-body">  
+
+                                <p class="browser-message"> </p>
+
+
+                            </div>
+
+                        </div>
+
+                    </div> 
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div> 
+
 
     <!-- jQuery -->
     <!--<script src="{{ url('assets/vendor/jquery/jquery.min.js') }}"></script>-->
@@ -220,18 +227,99 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/2.1.2/jquery.scrollTo.min.js"></script>
 
     <!-- Contact Form JavaScript -->
-    <script src="{{ url('assets/js/jqBootstrapValidation.js') }}"></script> 
+    <script src="{{ url('assets/js/jqBootstrapValidation.js') }}"></script>
 
     <!-- Theme JavaScript -->
-    <script src="{{ url('assets/js/agency.min.js') }}"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/2.1.2/jquery.scrollTo.min.js"></script>
+    <script src="{{ url('assets/js/agency.min.js') }}"></script> 
+    <script src="{{ url('assets/js/query.scrollTo.min.js') }}"></script>
     <script src="{{ url('assets/js/tk.js') }}"></script>
+    <script src="{{ url('assets/js/touche.js') }}"></script>
 
     <script type="text/javascript">
-        $(document).ready(function() {
+        console.log("%cStop!", "background: red; color: yellow; font-size: x-large");
+        console.log("%cThis is a browser feature intended for developers. If someone told you to copy-paste something here or find a way to `hack`, it is a scam, we have your details and will give the authorized to access to your details.", "background: white; color: red; font-size: large");
+        var lastTouchEnd = 0;
+        document.addEventListener('touchend', function (event) {
+            document.activeElement.blur();
+          var now = (new Date()).getTime();
+          if (now - lastTouchEnd <= 300) {
+            event.preventDefault();
+          }
+          lastTouchEnd = now;
+        }, false);
+
+
+        // Opera 8.0+
+        var isOpera = (!!window.opr && !!opr.addons) || !!window.opera || navigator.userAgent.indexOf(' OPR/') >= 0;
+
+        // Firefox 1.0+
+        var isFirefox = typeof InstallTrigger !== 'undefined';
+
+        // Safari 3.0+ "[object HTMLElementConstructor]" 
+        var isSafari = /constructor/i.test(window.HTMLElement) || (function (p) { return p.toString() === "[object SafariRemoteNotification]"; })(!window['safari'] || (typeof safari !== 'undefined' && safari.pushNotification));
+
+        // Internet Explorer 6-11
+        var isIE = /*@cc_on!@*/false || !!document.documentMode;
+
+        // Edge 20+
+        var isEdge = !isIE && !!window.StyleMedia;
+
+        // Chrome 1+
+        var isChrome = !!window.chrome && !!window.chrome.webstore;
+
+        // Blink engine detection
+        var isBlink = (isChrome || isOpera) && !!window.CSS;
+
+        if(isIE){
+            $('.browser-message').html('This game is best experienced on Google Chrome, Mozilla Firefox & Safari.');
+            $('#browser').modal('show');
+        }
+
+        if(isOpera){
+            $('.browser-message').html('This game is best experienced on Google Chrome, Mozilla Firefox & Safari.');
+            $('#browser').modal('show');
+        }
+
+        if(isEdge){
+            $('.browser-message').html('This game is best experienced on Google Chrome, Mozilla Firefox & Safari.');
+            $('#browser').modal('show');
+        }
+
+
+
+      function ajax_error_handling(jqXHR, exception){
+        if (jqXHR.status === 0) {
+            alert('Not connected.\n Verify Network.');
+        } else if (jqXHR.status == 404) {
+            alert('Requested page not found. [404]');
+        } else if (jqXHR.status == 419) {
+            alert('Time out! You have to refresh your page!');
+        } else if (jqXHR.status == 500) {
+            alert('Internal Server Error [500].');
+        } else if (exception === 'parsererror') {
+            alert('Requested JSON parse failed.');
+        } else if (exception === 'timeout') {
+            alert('Time out error.');
+        } else if (exception === 'abort') {
+            alert('Ajax request aborted.');
+        } else {
+            alert('Uncaught Error.\n' + jqXHR.responseText);
+        }
+    }
+    </script>
+
+    <script type="text/javascript">
+        $(document).ready(function() {	
+			$('#email2').keypress(function(event) {
+			   if (event.keyCode == '13') {
+				   event.preventDefault();
+			   }
+			});
+		
             $('#register-submit').on('click', function(e) {
+				e.preventDefault();
                 $('#overlay').css('display','block');
-      
+
 
                 $.ajax({
                     type: "POST",
@@ -275,6 +363,7 @@
 
             $('#update-submit').on('click', function(e) {
                 e.preventDefault();
+                document.activeElement.blur();
                 $('#overlay').css('display','block');
                 $.ajax({
                     type: "POST",
@@ -287,7 +376,22 @@
                             window.location.href = '/game?token='+result.message+'&matchid='+result.matchid;
                         } else {
                             $('.help-block').html('');
-                            $('#update-email-error').html(result.message);
+                            if (result.message == '**Uh Oh! You have reached your limit to play the game')
+                            {
+                                $('#update-email-error').html(result.message);
+                                $('#update-submit').hide();
+                            }
+                            else if(result.message == "**Uh Oh! You haven't register yet")
+                            {
+                                $('#update-email-error').html(result.message);
+                                $("#update-submit").hide();
+                                $("#retry-submit").show();
+                                //$('#update-submit').attr("href", "http://swisswatchgallery.com.my/raceagainsttime");
+                            }
+                            else
+                            {
+                                $('#update-email-error').html(result.message);
+                            }
                         }
                     },
                     errpr: function(jqXHR, exception) {
@@ -295,6 +399,8 @@
                         //alert(jqXHR);
                     }
                 });
+				
+				return false;
             });
         });
 

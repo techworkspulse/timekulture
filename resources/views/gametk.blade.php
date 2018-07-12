@@ -25,7 +25,7 @@
 			<div class="img-container p-2">
 				<img src="{{ url('assets/img/tk-game/pointer-02.png') }}" alt="options">
 			</div>
-			<p class="text-white p-3 f-montserrate">TAP TO MOVE YOUR PUZZLE PIECE</p>
+			<p class="text-white p-3 f-montserrate">TAP TO SWITCH YOUR PUZZLE PIECES</p>
 			<a href="#" class="btn-start start">START</a>
 		</div>
 		<div class="box this-slide-up">
@@ -42,7 +42,7 @@
 								<h1 id="player-final-score" class="text-yellow f-montserrate my-score"></h1>
 								<p id="player-final-time" class="f-montserrate mlh"></p>
 								<a id="btn-retry" href="javascript:void(0);" class="btn-retry">RETRY</a>
-								<p id="limit-error" class="help-block text-danger"></p>
+								<p id="limit-error" class="help-block text-danger results"></p>
 							</div>
 						</div>
 						<div class="col-md-6 col-sm-6 col-6 text-center">
@@ -58,7 +58,7 @@
 												<div class="col-md-3 col-3 ta-l">
 													{{ $increment }}
 												</div>
-												<div class="col-md-9 col-9 ta-l">
+												<div class="col-md-9 col-9 ta-l overflow-text ">
 													@php($scoreboardName = explode(" ",getFullNameById($item['player_id'])->name))
 													{{ $scoreboardName[0] }}
 												</div>
@@ -70,7 +70,7 @@
 												<div class="col-md-3 col-3 ta-l">
 													{{ $increment }}
 												</div>
-												<div class="col-md-9 col-9 ta-l">
+												<div class="col-md-9 col-9 ta-l overflow-text ">
 													@php($scoreboardName = explode(" ",getFullNameById($item['player_id'])->name))
 													{{ $scoreboardName[0] }}
 												</div>
@@ -82,7 +82,7 @@
 
 								@for($i=$count+1;$i<=10;$i++)
 									@if($i == 2)
-										<div class="score-num user-score">
+										<div class="score-num">
 											<div class="row">
 												<div class="col-md-3 col-3 ta-l">
 													{{ $i }}
@@ -111,8 +111,8 @@
 					<div class="row">
 						<div class="col-md-12">
 							<div class="r-m text-center">
-								<div class="mb-4 w-fix text-large f-montserrate uppercase">Get ahead with by earning extra points.<span><a class="text-yellow click-here" href="{{ url('/bonus') }}?token={{ app('request')->input('token') }}&matchid={{ app('request')->input('matchid') }}"> CLICK HERE</a></span></div>
-								<p class="text-yellow f-montserrate mb-1 mlh">Check your email at 11:59pm to see if you are the daily champion</p>
+								<div class="mb-4 w-fix text-large f-montserrate uppercase">GET AHEAD BY EARNING EXTRA POINTS.<span class="clickheremobile"><a class="text-yellow click-here" href="{{ url('/bonus') }}?token={{ app('request')->input('token') }}&matchid={{ app('request')->input('matchid') }}"> CLICK HERE</a></span></div>
+								<p class="text-yellow f-montserrate mb-1 mlh">Check your email at 12:30am to see if you are the daily champion</p>
 								<a href="/Time_Kulture_2018_TC_Puzzle_Game.pdf" target="_blank" class="text-white text-underline tnc f-montserrate">Terms & Conditions</a>
 							</div>
 						</div>
@@ -150,6 +150,7 @@
 	</div>
 	<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
 	<script src="{{ url('assets/js/index.js') }}"></script>
+	<script src="{{ url('assets/js/touche.js') }}"></script>
 	<script type="text/javascript">
 		$(document).ready(function() {
 			$('#player-points').html('1000');
@@ -167,10 +168,89 @@
 				mm = '0' + mm
 			}
 
-			today = mm + '/' + dd + '/' + yyyy;
+			today =  dd + '/' +  mm + '/' + yyyy;
 
 			$('.date').append(today);
 		});
 	</script>
+
+	<script type="text/javascript">
+        console.log("%cStop!", "background: red; color: yellow; font-size: x-large");
+        console.log("%cThis is a browser feature intended for developers. If someone told you to copy-paste something here or find a way to `hack`, it is a scam, we have your details and will give the authorized to access to your details.", "background: white; color: red; font-size: large");
+        var lastTouchEnd = 0;
+        document.addEventListener('touchend', function (event) {
+        	 document.activeElement.blur();
+          var now = (new Date()).getTime();
+          if (now - lastTouchEnd <= 300) {
+            event.preventDefault();
+          }
+          lastTouchEnd = now;
+        }, false);
+ 
+        // Opera 8.0+
+        var isOpera = (!!window.opr && !!opr.addons) || !!window.opera || navigator.userAgent.indexOf(' OPR/') >= 0;
+
+        // Firefox 1.0+
+        var isFirefox = typeof InstallTrigger !== 'undefined';
+
+        // Safari 3.0+ "[object HTMLElementConstructor]" 
+        var isSafari = /constructor/i.test(window.HTMLElement) || (function (p) { return p.toString() === "[object SafariRemoteNotification]"; })(!window['safari'] || (typeof safari !== 'undefined' && safari.pushNotification));
+
+        // Internet Explorer 6-11
+        var isIE = /*@cc_on!@*/false || !!document.documentMode;
+
+        // Edge 20+
+        var isEdge = !isIE && !!window.StyleMedia;
+
+        // Chrome 1+
+        var isChrome = !!window.chrome && !!window.chrome.webstore;
+
+        // Blink engine detection
+        var isBlink = (isChrome || isOpera) && !!window.CSS;
+
+        if(isIE){
+            $('.browser-message').html('This game is best experienced on Google Chrome, Mozilla Firefox & Safari.');
+            $('#browser').modal('show');
+        }
+
+        if(isOpera){
+            $('.browser-message').html('This game is best experienced on Google Chrome, Mozilla Firefox & Safari.');
+            $('#browser').modal('show');
+        }
+
+        if(isEdge){
+            $('.browser-message').html('This game is best experienced on Google Chrome, Mozilla Firefox & Safari.');
+            $('#browser').modal('show');
+        }
+
+
+
+      function ajax_error_handling(jqXHR, exception){
+        if (jqXHR.status === 0) {
+            alert('Not connected.\n Verify Network.');
+        } else if (jqXHR.status == 404) {
+            alert('Requested page not found. [404]');
+        } else if (jqXHR.status == 419) {
+            alert('Time out! You have to refresh your page!');
+        } else if (jqXHR.status == 500) {
+            alert('Internal Server Error [500].');
+        } else if (exception === 'parsererror') {
+            alert('Requested JSON parse failed.');
+        } else if (exception === 'timeout') {
+            alert('Time out error.');
+        } else if (exception === 'abort') {
+            alert('Ajax request aborted.');
+        } else {
+            alert('Uncaught Error.\n' + jqXHR.responseText);
+        }
+    }
+    </script>
+
+    <script type="text/javascript">
+    	var hideKeyboard = function() {
+			 document.activeElement.blur();
+			 $("body").blur();
+			};
+    </script>
 </body>
 @endsection

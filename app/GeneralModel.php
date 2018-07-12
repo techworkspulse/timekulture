@@ -50,6 +50,35 @@ class GeneralModel extends Model
 
         return $result;
     }
+	
+	function sentEmailNotificationWithCc($data, $template='emails.thankyou'){
+        try {
+            $result = Mail::send($template, ['data' => $data], function ($message) use ($data){
+                $message->from($data['fromEmail'], $data['fromName']);
+                $message->to($data['toEmail'], $data['toName']);
+				$message->cc($data['ccEmail'], $data['ccName']);
+                $message->replyTo($data['fromEmail'], $data['fromName']);
+                $message->subject($data['intromessage']);
+                $message->getSwiftMessage();
+
+            });
+        } catch (Exception $e) {
+            if( count(Mail::failures()) > 0 ) {
+
+               $result = "There was one or more failures. They were: <br />";
+
+               foreach(Mail::failures as $email_address) {
+                   $result .=  " - $email_address";
+                }
+
+            } else {
+                $result =  "No errors, all sent successfully!";
+            }
+        }
+
+
+        return $result;
+    }
 
     function sentEmailNotificationWithAttachment($data, $template='emails.index'){
         try {

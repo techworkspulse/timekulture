@@ -8,6 +8,6 @@ class DailyWinner extends Model
 {
     public function getPastScoreboardNames()
 	{
-		return DailyWinner::where('created_at', '>=', date('Y-m-d').strtotime("-1 days"))->take(10)->get();
+		return DailyWinner::whereBetween('created_at', [date('Y-m-d 00:00:00', strtotime(date('Y-m-d 00:00:00'). ' -1 day')),date('Y-m-d 00:00:00')])->take(10)->get();
 	}
 }
