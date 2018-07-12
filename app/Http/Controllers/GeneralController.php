@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Jenssegers\Agent\Agent;
 
 use App\Player;
 use App\Match;
@@ -206,6 +207,7 @@ class GeneralController extends Controller
     public function storeMatchData(Request $request) 
     {
     	$data = $request->all();
+        $agent = new Agent();
 
     	$player = Player::where('unique_token',$data['uniqueToken'])->first();
 
@@ -218,6 +220,7 @@ class GeneralController extends Controller
     	$match->points = $data['points'];
     	$match->ip_address = $this->getIp();
     	$match->completion_status = 1;
+        $match->device_type = $agent->isDesktop();
     	$match->save();
 
         if($player->live_count > 0)

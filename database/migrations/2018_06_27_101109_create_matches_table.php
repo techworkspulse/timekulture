@@ -23,6 +23,7 @@ class CreateMatchesTable extends Migration
             $table->integer('points')->nullable()->default(1000);
             $table->integer('completion_status')->default(0);
             $table->string('ip_address')->nullable();
+            $table->string('device_type')->nullable();
             $table->timestamps();
         });
     }
