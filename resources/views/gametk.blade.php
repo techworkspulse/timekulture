@@ -48,63 +48,7 @@
 						<div class="col-md-6 col-sm-6 col-6 text-center">
 							<h2 class="text-yellow">SCOREBOARD</h2>
 							<div class="scoreboard">
-								@php($scoreboard = getScoreboardNames())
-								@php($count = count($scoreboard))
-								@php($increment = 1)
-								@foreach($scoreboard as $item)
-									@if($increment == 2)
-										<div class="score-num">
-											<div class="row">
-												<div class="col-md-3 col-3 ta-l">
-													{{ $increment }}
-												</div>
-												<div class="col-md-9 col-9 ta-l overflow-text ">
-													@php($scoreboardName = explode(" ",getFullNameById($item['player_id'])->name))
-													{{ $scoreboardName[0] }}
-												</div>
-											</div>
-										</div>
-									@else
-										<div class="score-num">
-											<div class="row">
-												<div class="col-md-3 col-3 ta-l">
-													{{ $increment }}
-												</div>
-												<div class="col-md-9 col-9 ta-l overflow-text ">
-													@php($scoreboardName = explode(" ",getFullNameById($item['player_id'])->name))
-													{{ $scoreboardName[0] }}
-												</div>
-											</div>
-										</div>
-									@endif		
-									@php($increment++)
-								@endforeach
-
-								@for($i=$count+1;$i<=10;$i++)
-									@if($i == 2)
-										<div class="score-num">
-											<div class="row">
-												<div class="col-md-3 col-3 ta-l">
-													{{ $i }}
-												</div>
-												<div class="col-md-9 col-9 ta-l">
-													-
-												</div>
-											</div>
-										</div>
-									@else
-										<div class="score-num">
-											<div class="row">
-												<div class="col-md-3 col-3 ta-l">
-													{{ $i }}
-												</div>
-												<div class="col-md-9 col-9 ta-l">
-													-
-												</div>
-											</div>
-										</div>
-									@endif
-								@endfor
+								
 							</div>
 						</div>
 					</div>

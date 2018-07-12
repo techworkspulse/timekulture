@@ -10,8 +10,7 @@
         "jenssegers/agent": "^2.6",
         "laravel/framework": "5.6.*",
         "laravel/tinker": "^1.0",
-        "sudiptpa/guid": "^1.0",
-        "jenssegers/agent": "^2.6",
+        "sudiptpa/guid": "^1.0"
     },
     "require-dev": {
         "filp/whoops": "^2.0",
