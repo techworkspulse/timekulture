@@ -384,6 +384,7 @@ $(document).ready(function() {
 	}
 
 	function submitData() {
+		$('#overlay').css('display','block');
 		$.ajax({
 			type: "POST",
 			headers: {'X-CSRF-TOKEN': $('meta[name="csrf_token"]').attr('content')},
@@ -398,10 +399,11 @@ $(document).ready(function() {
 				'points': points,
 			},
 			success: function(status) {
+				$('#overlay').css('display','none');
 				getScoreboardNames();
 			},
 			errpr: function(jqXHR, exception) {
-
+				$('#overlay').css('display','none');
 			}
 		});
 	}
