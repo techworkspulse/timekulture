@@ -59,7 +59,6 @@ $(document).ready(function() {
 
 	var random = parseFloat(getPuzzleId())-1; 
 
-
 	$('.full').css({"background-image" : 'url('+images[random]+')'});
 
 	$(".start").click(function() {
@@ -399,7 +398,7 @@ $(document).ready(function() {
 				'points': points,
 			},
 			success: function(status) {
-				
+				getScoreboardNames();
 			},
 			errpr: function(jqXHR, exception) {
 
@@ -420,7 +419,7 @@ $(document).ready(function() {
 	    if (timeStopped !== null) {
 	        stoppedDuration += (new Date() - timeStopped);
 	    }
-	    console.log(stoppedDuration);
+	    //console.log(stoppedDuration);
 
 	    started = setInterval(clockRunning, 10);	
 	}
@@ -451,4 +450,51 @@ $(document).ready(function() {
 	        (sec > 9 ? sec : "0" + sec) + ":" + 
 	        (ms > 99 ? ms : ms > 9 ? ms : "00" + ms);
 	};
+
+	function getScoreboardNames(){
+		$.ajax({
+			type: "POST",
+			headers: {'X-CSRF-TOKEN': $('meta[name="csrf_token"]').attr('content')},
+			url: "/getScoreboardNames",
+			data: "",
+			success: function(data) {
+				console.log(data);
+	        	$('.scoreboard').html();
+	        	var result = '';
+	        	for(i=0;i<data.length;i++)
+	        	{
+	        		result += '<div class="score-num">';
+		        	result += '<div class="row">';
+					result += '<div class="col-md-3 col-3 ta-l">';
+					result +=  parseFloat(i)+1;
+					result += '</div>';
+					result += '<div class="col-md-9 col-9 ta-l overflow-text-scoreboard ">';	
+					var str = data[i]["name"].split(" ");
+					result += str[0];
+					result += '</div>';	
+					result += '</div>';	
+					result += '</div>';	
+	        	}
+	        	var cap = 10 - parseFloat(data.length);
+	        	for(j=0;j<cap;j++)
+	        	{
+	        		result += '<div class="score-num">';
+		        	result += '<div class="row">';
+					result += '<div class="col-md-3 col-3 ta-l">';
+					result += '-';
+					result += '</div>';
+					result += '<div class="col-md-9 col-9 ta-l overflow-text-scoreboard ">';	
+					result += '-';
+					result += '</div>';	
+					result += '</div>';	
+					result += '</div>';	
+	        	}
+	        	$(".scoreboard").html(result);
+			},
+			errpr: function(jqXHR, exception) {
+
+			}
+
+		});
+	}
 });

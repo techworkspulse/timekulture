@@ -10,6 +10,7 @@ use App\Match;
 use App\MatchLog;
 use App\Reward;
 use App\GeneralModel;
+use App\DailyWinner;
 
 class GeneralController extends Controller
 {
@@ -577,5 +578,19 @@ class GeneralController extends Controller
     	$result = array('status' => true,'message' => $lives);
 
     	return json_encode($result);
+    }
+
+    public function getScoreboardNames()
+    {
+        $winnerList = array();
+        $dailyWinner = DailyWinner::all();
+        foreach ($dailyWinner as $item)
+        {
+            $winnerList[] = $item->player_id;
+        }
+
+        $scoreboard = Match::leftjoin('players','matches.player_id','=','players.id')->selectRaw('MAX(points) AS point, player_id, players.name as name')->whereNotIn('player_id',$winnerList)->where('point','<=','1300')->where('matches.created_at', '>=', date('Y-m-d').' 00:00:00')->where('matches.completion_status',1)->groupBy('player_id')->orderBy('point','desc')->take(10)->get();
+        
+        return $scoreboard;
     }
 }
