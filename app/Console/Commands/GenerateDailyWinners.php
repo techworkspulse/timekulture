@@ -52,12 +52,15 @@ class GenerateDailyWinners extends Command
             $winnerList[] = $item->player_id;
         }
 
-        $match = Match::selectRaw('id, MAX(points) AS point, player_id')
-            ->whereNotIn('player_id',$winnerList)
+        $match = Match::selectRaw('b.id, matches.player_id, MAX(matches.points) AS point')
+			->leftjoin('matches AS b','matches.id','=','b.id')
+            ->whereNotIn('matches.player_id',$winnerList)
             ->where('matches.points','<=','1300')
-			->where('completion_status',1)
-            ->whereBetween('created_at', [date('Y-m-d 00:00:00', strtotime(date('Y-m-d 00:00:00'). ' -1 day')),date('Y-m-d 00:00:00')])
-            ->groupBy('player_id')->orderBy('point','desc')->orderBy('created_at','asc')->take(10)->get();    
+			->where('matches.completion_status',1)
+            ->whereBetween('matches.created_at', [date('Y-m-d 00:00:00', strtotime(date('Y-m-d 00:00:00'). ' -1 day')),date('Y-m-d 00:00:00')])
+            ->groupBy('matches.player_id')->orderBy('point','desc')->take(10)->get();   
+			
+		echo $match;
 
         if ($match)
         {
