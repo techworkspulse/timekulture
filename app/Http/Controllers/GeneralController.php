@@ -94,7 +94,7 @@ class GeneralController extends Controller
 	        	$player->gender_id = $data['gender'];
 	        	$player->phone = $data['phone'];
 	        	$player->email = $data['email'];
-	        	$player->live_count = 9;
+	        	$player->live_count = 3;
 	        	$player->dailywinner_status = 0;
 	        	$player->voucher_status = 0;
 	        	$player->unique_token = $uniqueToken;

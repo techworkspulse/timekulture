@@ -335,6 +335,11 @@
 
                             var error = JSON.stringify(result.message);
                             var obj = JSON.parse(error);
+							
+							if (result.message == 'No more lives available')
+							{
+								$('#email-error').html(result.message);
+							}
 
                             if (obj['name'] != '')
                             {

@@ -52,13 +52,15 @@ class GenerateDailyWinners extends Command
             $winnerList[] = $item->player_id;
         }
 
-        $match = Match::selectRaw('b.id, matches.player_id, MAX(matches.points) AS point')
-			->leftjoin('matches AS b','matches.id','=','b.id')
-            ->whereNotIn('matches.player_id',$winnerList)
-            ->where('matches.points','<=','1300')
-			->where('matches.completion_status',1)
-            ->whereBetween('matches.created_at', [date('Y-m-d 00:00:00', strtotime(date('Y-m-d 00:00:00'). ' -1 day')),date('Y-m-d 00:00:00')])
-            ->groupBy('matches.player_id')->orderBy('point','desc')->take(10)->get();   
+        // $match = Match::selectRaw('b.id, matches.player_id, MAX(matches.points) AS point')
+			// ->leftjoin('matches AS b','matches.id','=','b.id')
+            // ->whereNotIn('matches.player_id',$winnerList)
+            // ->where('matches.points','<=','1300')
+			// ->where('matches.completion_status',1)
+            // ->whereBetween('matches.created_at', [date('Y-m-d 00:00:00', strtotime(date('Y-m-d 00:00:00'). ' -1 day')),date('Y-m-d 00:00:00')])
+            // ->groupBy('matches.player_id')->orderBy('point','desc')->take(10)->get();   
+			
+		$match = DB::select(DB::raw("SELECT p.name, m.* FROM matches m INNER JOIN (SELECT  player_id, MAX(points) AS maxPoints FROM matches GROUP BY player_id) gm ON m.player_id = gm.player_id AND m.points = gm.maxPoints INNER JOIN players p on p.id=m.player_id WHERE m.created_at >= '" . date('Y-m-d 00:00:00', strtotime(date('Y-m-d 00:00:00'). ' -1 day')) . "' AND m.created_at <= '" . date('Y-m-d 00:00:00') . "' NOT in ('" . implode( "', '" , $winnerList ) . "') and m.completion_status=1 and m.points <= 1300 GROUP BY m.player_id ORDER BY m.points desc LIMIT 10"))->get();
 			
 		echo $match;
 
